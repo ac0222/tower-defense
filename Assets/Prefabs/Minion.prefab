@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6596317122643394667}
   - component: {fileID: 6596317122643394666}
   - component: {fileID: 6596317122643394665}
+  - component: {fileID: 3859844221156869507}
   m_Layer: 0
   m_Name: Minion
   m_TagString: Untagged
@@ -99,3 +100,16 @@ CircleCollider2D:
   m_Offset: {x: -0.023753643, y: 0.05199498}
   serializedVersion: 2
   m_Radius: 0.30537492
+--- !u!114 &3859844221156869507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6596317122643394664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e54f090f0cc3874fbe07b26958c89e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {fileID: 0}
