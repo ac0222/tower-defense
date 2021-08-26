@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MinionController : MonoBehaviour
 {
-    public float speed = 3.0f;
-    public GameObject destination;
+    public float speed = 10f;
+    public GameObject Destination { get; set; }
     // Start is called before the first frame update
     void Start()
     {
@@ -21,16 +21,24 @@ public class MinionController : MonoBehaviour
 
     void FixedUpdate()
     {
-        MoveTo(destination.transform);
+        MoveTo(Destination.transform);
     }
 
     void MoveTo(Transform location)
     {
         Vector3 vectorTo = location.position - this.transform.position;
+        Vector3 vectorMove = vectorTo.normalized * speed * Time.deltaTime;
+
         if (!Mathf.Approximately(vectorTo.magnitude, 0)) 
         {
-            this.transform.position += vectorTo.normalized * Time.deltaTime;
+            if (vectorTo.magnitude <= vectorMove.magnitude) 
+            {
+                this.transform.position = location.position;
+            }
+            else
+            {
+                this.transform.position += vectorMove;
+            }
         }
-        Debug.Log(vectorTo);
     }
 }
