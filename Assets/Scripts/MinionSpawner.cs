@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class MinionSpawner : MonoBehaviour
     float spawnTimer;
     public float spawnFrequency = 3.0f;
     public GameObject minionPrefab;
+    public GameObject checkpoints;
+    public GameObject destination;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +32,17 @@ public class MinionSpawner : MonoBehaviour
     Stack<Vector3> MakePath()
     {
         Stack<Vector3> path = new Stack<Vector3>();
-        path.Push(new Vector3(0, 0, 0));
-        path.Push(new Vector3(5, 5, 0));
-        path.Push(new Vector3(1, 7, 0));
-        path.Push(new Vector3(-3, 4, 0));
+        path.Push(destination.transform.position);
+        List<Vector3> checkpointVectors = new List<Vector3>();
+        foreach(Transform ct in checkpoints.transform)
+        {
+            checkpointVectors.Add(ct.position);
+        }
+        checkpointVectors.Reverse();
+        foreach(Vector3 cv in checkpointVectors)
+        {
+            path.Push(cv);
+        }
         return path;
     }
 }

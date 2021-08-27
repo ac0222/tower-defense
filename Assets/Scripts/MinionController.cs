@@ -44,16 +44,19 @@ public class MinionController : MonoBehaviour
 
     void FollowPath()
     {
+        if (Path.Count == 0) {
+            return;
+        }
+
         // determine checkpoint
         Vector3 nextCheckpoint = Path.Peek();
+        MoveTo(nextCheckpoint);
+
+        // pop if we arrived
         float distanceToCheckpoint = (nextCheckpoint - this.transform.position).magnitude;
-        while (Mathf.Approximately(distanceToCheckpoint, 0))
+        if (Mathf.Approximately(distanceToCheckpoint, 0))
         {
             Path.Pop();
-            nextCheckpoint = Path.Peek();
-            distanceToCheckpoint = (nextCheckpoint - this.transform.position).magnitude;
         }
-        // move towards checkpoint
-        MoveTo(nextCheckpoint);
     }
 }
