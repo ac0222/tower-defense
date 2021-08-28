@@ -39,7 +39,6 @@ public class TurretController : MonoBehaviour
                 .Aggregate((minItem, nextItem) => 
                     minItem.GetComponent<MinionController>().DistanceToExit() < nextItem.GetComponent<MinionController>().DistanceToExit() 
                     ? minItem : nextItem);
-            Debug.Log(target.name);
             Vector2 directionOfTarget = (target.transform.position - this.transform.position).normalized;
 
             // rotate towards target

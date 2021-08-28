@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MinionController : MonoBehaviour
 {
+    public float moneyReward = 10;
     public float maxHealth = 10;
     float currentHealth;
     public float speed = 10f;
@@ -86,5 +87,10 @@ public class MinionController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void OnDestroy() 
+    {
+        PlayerController.ChangeMoney(moneyReward);
     }
 }
