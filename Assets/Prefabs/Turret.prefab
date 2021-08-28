@@ -99,7 +99,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 3
 --- !u!114 &4196481682077619133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,3 +112,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3ada6bb787ba647a75b8a9e766455e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammoPrefab: {fileID: 602894149804576257, guid: 0e6b4591f984eb142a9e42d6b73618cc, type: 3}
+  reloadTime: 0.5

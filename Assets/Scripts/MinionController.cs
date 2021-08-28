@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class MinionController : MonoBehaviour
 {
+    public float maxHealth = 10;
+    float currentHealth;
     public float speed = 10f;
     public List<Vector3> Path {get; set;}
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -60,8 +61,24 @@ public class MinionController : MonoBehaviour
         }
     }
 
-    float DistanceToExit()
+    public float DistanceToExit()
     {
-        return 0;
+        float distance = 0;
+        Vector3 currentPosition = this.transform.position;
+        foreach(Vector3 checkpoint in Path)
+        {
+            distance += (checkpoint - currentPosition).magnitude;
+            currentPosition = checkpoint;
+        }
+        return distance;
+    }
+
+    public void ChangeHealth(float amount)
+    {
+        currentHealth += amount;
+        if (currentHealth < 0) 
+        {
+            Destroy(gameObject);
+        }
     }
 }
