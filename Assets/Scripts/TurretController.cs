@@ -48,6 +48,7 @@ public class TurretController : MonoBehaviour
 
             // shoot at target
             GameObject bullet = Instantiate(ammoPrefab, this.transform.position, Quaternion.identity);
+            bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             bullet.GetComponent<Rigidbody2D>().AddForce(directionOfTarget * 500);
 
             // reload

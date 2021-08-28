@@ -25,11 +25,17 @@ public class MinionController : MonoBehaviour
         FollowPath();
     }
 
-    void MoveTo(Vector3 destinationVector)
+    void RotateAndMoveTo(Vector3 destinationVector)
     {
         Vector3 vectorTo = destinationVector - this.transform.position;
-        Vector3 vectorMove = vectorTo.normalized * speed * Time.deltaTime;
+        Vector3 directionTo = vectorTo.normalized;
+        Vector3 vectorMove = directionTo * speed * Time.deltaTime;
 
+        // rotate towards destination
+        float angle = Mathf.Atan2(directionTo.y , directionTo.x) * Mathf.Rad2Deg + 90;
+        this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);        
+
+        // move towards destination
         if (!Mathf.Approximately(vectorTo.magnitude, 0)) 
         {
             if (vectorTo.magnitude <= vectorMove.magnitude) 
@@ -51,7 +57,7 @@ public class MinionController : MonoBehaviour
 
         // determine checkpoint
         Vector3 nextCheckpoint = Path[0];
-        MoveTo(nextCheckpoint);
+        RotateAndMoveTo(nextCheckpoint);
 
         // pop if we arrived
         float distanceToCheckpoint = (nextCheckpoint - this.transform.position).magnitude;
