@@ -84,13 +84,9 @@ public class MinionController : MonoBehaviour
     {
         currentHealth += amount;
         if (currentHealth < 0) 
-        {
+        {                    
+            PlayerController.ChangeMoney(moneyReward);
             Destroy(gameObject);
         }
-    }
-
-    void OnDestroy() 
-    {
-        PlayerController.ChangeMoney(moneyReward);
     }
 }
