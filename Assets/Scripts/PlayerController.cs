@@ -23,6 +23,5 @@ public class PlayerController : MonoBehaviour
     public static void ChangeMoney(float amount) 
     {
         Money += amount;
-        Debug.Log(Money);
     }
 }
