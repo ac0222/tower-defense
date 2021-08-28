@@ -40,10 +40,13 @@ public class TurretController : MonoBehaviour
                     minItem.GetComponent<MinionController>().DistanceToExit() < nextItem.GetComponent<MinionController>().DistanceToExit() 
                     ? minItem : nextItem);
             Debug.Log(target.name);
+            Vector2 directionOfTarget = (target.transform.position - this.transform.position).normalized;
 
+            // rotate towards target
+            float angle = Mathf.Atan2(directionOfTarget.y , directionOfTarget.x) * Mathf.Rad2Deg + 90;
+            this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
             // shoot at target
-            Vector2 directionOfTarget = (target.transform.position - this.transform.position).normalized;
             GameObject bullet = Instantiate(ammoPrefab, this.transform.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().AddForce(directionOfTarget * 500);
 
