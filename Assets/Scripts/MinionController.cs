@@ -5,7 +5,7 @@ using UnityEngine;
 public class MinionController : MonoBehaviour
 {
     public float speed = 10f;
-    public Stack<Vector3> Path {get; set;}
+    public List<Vector3> Path {get; set;}
     // Start is called before the first frame update
     void Start()
     {
@@ -49,14 +49,19 @@ public class MinionController : MonoBehaviour
         }
 
         // determine checkpoint
-        Vector3 nextCheckpoint = Path.Peek();
+        Vector3 nextCheckpoint = Path[0];
         MoveTo(nextCheckpoint);
 
         // pop if we arrived
         float distanceToCheckpoint = (nextCheckpoint - this.transform.position).magnitude;
         if (Mathf.Approximately(distanceToCheckpoint, 0))
         {
-            Path.Pop();
+            Path.RemoveAt(0);
         }
+    }
+
+    float DistanceToExit()
+    {
+        return 0;
     }
 }

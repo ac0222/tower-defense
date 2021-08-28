@@ -29,20 +29,14 @@ public class MinionSpawner : MonoBehaviour
         }
     }
 
-    Stack<Vector3> MakePath()
+    List<Vector3> MakePath()
     {
-        Stack<Vector3> path = new Stack<Vector3>();
-        path.Push(destination.transform.position);
-        List<Vector3> checkpointVectors = new List<Vector3>();
+        List<Vector3> path = new List<Vector3>();
         foreach(Transform ct in checkpoints.transform)
         {
-            checkpointVectors.Add(ct.position);
+            path.Add(ct.position);
         }
-        checkpointVectors.Reverse();
-        foreach(Vector3 cv in checkpointVectors)
-        {
-            path.Push(cv);
-        }
+        path.Add(destination.transform.position);
         return path;
     }
 }
