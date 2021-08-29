@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public static int maxLives = 20;
     public static int Lives {get; private set;}
-    public static float startingMoney = 10;
+    public static float startingMoney = 200;
     public static float Money {get; private set;}
     static PlayerController instance = null;
     public static PlayerController Instance {get {return instance;}}

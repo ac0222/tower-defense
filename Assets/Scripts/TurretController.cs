@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TurretController : MonoBehaviour
 {
+    public static float cost = 100f;
     CircleCollider2D rangeCollider;
     Queue<GameObject> targetsInRange;
     public GameObject ammoPrefab;
