@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class ConstructionPanelController : MonoBehaviour
 {
+    float errorMessageTimer = 0;
+    float timeToShowErrorMessage = 3.0f;
+    public Text errorMessage;
+    public Sprite buildModeCursor;
     public Button buildTurretButton;
     public GameObject turretPrefab;
     bool isInBuildMode;
@@ -12,11 +16,18 @@ public class ConstructionPanelController : MonoBehaviour
     void Start()
     {
         isInBuildMode = false;
-        buildTurretButton.onClick.AddListener(() => BuildButtonClicked());
+        buildTurretButton.onClick.AddListener(() => TryEnterBuildMode());
+        buildTurretButton.GetComponentInChildren<Text>().text = $"Build Turret\n Cost = {TurretController.cost}";
     }
 
     // Update is called once per frame
     void Update()
+    {
+        ListenForConstructTurretClick();
+        UpdateErrorMessage();
+    }
+
+    void ListenForConstructTurretClick()
     {
         if (isInBuildMode && Input.GetMouseButtonDown(0))
         {
@@ -26,14 +37,52 @@ public class ConstructionPanelController : MonoBehaviour
             {
                 BuildTurretAtPosition(worldPosition);
                 PlayerController.ChangeMoney(-1 * TurretController.cost);
-                isInBuildMode = false;
+                ExitBuildMode();
             }
         }
     }
 
-    void BuildButtonClicked()
+    void UpdateErrorMessage()
     {
-        isInBuildMode = true;
+        if (CanEnterBuildMode())
+        {
+            errorMessage.enabled = false;
+        }
+        if (errorMessage.enabled)
+        {
+            errorMessageTimer -= Time.deltaTime;
+        }
+        if (errorMessageTimer < 0)
+        {
+            errorMessage.enabled = false;
+        }
+    }
+
+    void TryEnterBuildMode()
+    {
+        if (CanEnterBuildMode())
+        {
+            errorMessage.enabled = false;
+            isInBuildMode = true;
+            Cursor.SetCursor(buildModeCursor.texture, Vector2.one*0.5f, CursorMode.Auto);
+        }
+        else
+        {
+            errorMessage.enabled = true;
+            errorMessageTimer = timeToShowErrorMessage;
+        }
+
+    }
+
+    bool CanEnterBuildMode()
+    {
+        return PlayerController.Money >= TurretController.cost;
+    }
+
+    void ExitBuildMode()
+    {
+        isInBuildMode = false;
+        Cursor.SetCursor(null, Vector2.one, CursorMode.Auto);
     }
 
     void BuildTurretAtPosition(Vector3 position)
