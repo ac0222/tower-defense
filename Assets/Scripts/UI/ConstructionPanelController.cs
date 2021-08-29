@@ -12,6 +12,13 @@ public class ConstructionPanelController : MonoBehaviour
     public Button buildTurretButton;
     public GameObject turretPrefab;
     bool isInBuildMode;
+    Texture2D buildModeCursorTexture;
+
+    void Awake()
+    {
+        buildModeCursorTexture = buildModeCursor.texture;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +71,8 @@ public class ConstructionPanelController : MonoBehaviour
         {
             errorMessage.enabled = false;
             isInBuildMode = true;
-            Cursor.SetCursor(buildModeCursor.texture, Vector2.one*0.5f, CursorMode.Auto);
+            Vector2 cursorHotspot = new Vector2(buildModeCursorTexture.width / 2, buildModeCursorTexture.height / 2);
+            Cursor.SetCursor(buildModeCursorTexture, cursorHotspot, CursorMode.Auto);
         }
         else
         {
