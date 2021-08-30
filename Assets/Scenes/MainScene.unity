@@ -265,6 +265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34650741871d48f41ad54ee78896d263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpoints: {fileID: 311809849}
+  destination: {fileID: 1723647883}
+  spawnPoint: {fileID: 940541704}
 --- !u!1 &153827332
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,7 +865,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next Wave
+  m_Text: Send Wave
 --- !u!222 &1143779185
 CanvasRenderer:
   m_ObjectHideFlags: 0

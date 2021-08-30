@@ -8,6 +8,7 @@ public class MinionController : MonoBehaviour
     public float maxHealth = 10;
     float currentHealth;
     public float speed = 10f;
+    bool destroyedByTurret = false;
     public List<Vector3> Path {get; set;}
     // Start is called before the first frame update
     void Start()
@@ -85,8 +86,13 @@ public class MinionController : MonoBehaviour
         currentHealth += amount;
         if (currentHealth < 0) 
         {                    
-            PlayerController.ChangeMoney(moneyReward);
+            destroyedByTurret = true;
             Destroy(gameObject);
         }
+    }
+
+    void OnDestroy() 
+    {
+        PlayerController.ChangeMoney(moneyReward);
     }
 }
