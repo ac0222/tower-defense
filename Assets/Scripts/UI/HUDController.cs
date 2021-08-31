@@ -15,7 +15,8 @@ public class HUDController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerController.Lives <= 0 && gameOverPanel.activeSelf == false)
+        if (GameController.Instance.GetGameState() == Constants.GAME_OVER 
+            && gameOverPanel.activeSelf == false)
         {
             gameOverPanel.SetActive(true);
         }

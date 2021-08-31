@@ -6,7 +6,7 @@ using UnityEngine;
 public class MinionSpawner : MonoBehaviour
 {
     int minionsLeftToCreate;
-    public int WaveSize {get; private set; } = 100;
+    public int WaveSize {get; set; } = 100;
     float spawnTimer;
     public float spawnFrequency = 3.0f;
     public GameObject minionPrefab;
