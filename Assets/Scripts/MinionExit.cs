@@ -21,7 +21,10 @@ public class MinionExit : MonoBehaviour
         if(col.gameObject.CompareTag("Minion"))
         {
             Destroy(col.gameObject);
-            PlayerController.ChangeLives(-1);
+            if (PlayerController.Lives > 0)
+            {
+                PlayerController.ChangeLives(-1);
+            }
         }
     }
 }

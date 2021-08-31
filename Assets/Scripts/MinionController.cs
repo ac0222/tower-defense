@@ -93,6 +93,9 @@ public class MinionController : MonoBehaviour
 
     void OnDestroy() 
     {
-        PlayerController.ChangeMoney(moneyReward);
+        if (destroyedByTurret)
+        {
+            PlayerController.ChangeMoney(moneyReward);
+        }
     }
 }
