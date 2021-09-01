@@ -7,8 +7,7 @@ public class GameController : MonoBehaviour
 {
     public GameObject minionSpawnerPrefab;
     public static int waveCounter = 0;
-    //public static List<int> waves = new List<int> {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
-    public static List<int> waves = new List<int> {10};
+    public static List<int> waves = new List<int> {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
 
     static GameController instance;
     public static GameController Instance {get {return instance;}}

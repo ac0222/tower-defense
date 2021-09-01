@@ -18,8 +18,8 @@ public class HUDController : MonoBehaviour
         if (GameController.Instance.GetGameState() == Constants.VICTORY 
             && gameOverPanel.activeSelf == false)
         {
-            gameOverPanel.GetComponentInChildren<Text>().text = "VICTORY";
             gameOverPanel.SetActive(true);
+            gameOverPanel.GetComponentInChildren<Text>().text = "VICTORY";
         }
         if (GameController.Instance.GetGameState() == Constants.GAME_OVER 
             && gameOverPanel.activeSelf == false)
