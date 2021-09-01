@@ -15,6 +15,12 @@ public class HUDController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameController.Instance.GetGameState() == Constants.VICTORY 
+            && gameOverPanel.activeSelf == false)
+        {
+            gameOverPanel.GetComponentInChildren<Text>().text = "VICTORY";
+            gameOverPanel.SetActive(true);
+        }
         if (GameController.Instance.GetGameState() == Constants.GAME_OVER 
             && gameOverPanel.activeSelf == false)
         {

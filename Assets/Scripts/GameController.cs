@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameController : MonoBehaviour
 {
     public GameObject minionSpawnerPrefab;
-    static int waveCounter = 0;
-    static List<int> waves = new List<int> {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    public static int waveCounter = 0;
+    //public static List<int> waves = new List<int> {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    public static List<int> waves = new List<int> {10};
+
     static GameController instance;
     public static GameController Instance {get {return instance;}}
     // Start is called before the first frame update
@@ -17,6 +20,10 @@ public class GameController : MonoBehaviour
 
     public string GetGameState()
     {
+        if (MinionController.minionsDestroyed >= waves.Sum())
+        {
+            return Constants.VICTORY;
+        }
         if (PlayerController.Lives <= 0)
         {
             return Constants.GAME_OVER;

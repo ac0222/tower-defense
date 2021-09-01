@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MinionController : MonoBehaviour
 {
+    public static int minionsDestroyed = 0;
     public float moneyReward = 10;
     public float maxHealth = 10;
     float currentHealth;
@@ -97,5 +98,6 @@ public class MinionController : MonoBehaviour
         {
             PlayerController.ChangeMoney(moneyReward);
         }
+        minionsDestroyed += 1;
     }
 }
