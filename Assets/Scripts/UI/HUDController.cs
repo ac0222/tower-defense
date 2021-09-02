@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class HUDController : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class HUDController : MonoBehaviour
         if (GameController.Instance.GetGameState() == Constants.GAME_OVER 
             && gameOverPanel.activeSelf == false)
         {
+            // don't show victory video if loss
+            Destroy(gameOverPanel.GetComponentInChildren<VideoPlayer>().gameObject);
             gameOverPanel.SetActive(true);
         }
         
