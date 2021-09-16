@@ -95,6 +95,7 @@ public class ConstructionPanelController : MonoBehaviour
 
     void BuildTurretAtPosition(Vector3 position)
     {
-        Instantiate(turretPrefab, position, Quaternion.identity);
+        GameObject newTurret = Instantiate(turretPrefab, position, Quaternion.identity);
+        GameController.Instance.towers.Add(newTurret);
     }
 }

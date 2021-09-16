@@ -5,6 +5,7 @@ using System.Linq;
 
 public class GameController : MonoBehaviour
 {
+    public List<GameObject> towers;
     public GameObject minionSpawnerPrefab;
     public static int waveCounter = 0;
     public static List<int> waves = new List<int> {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
@@ -15,6 +16,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         instance = this;
+        towers = new List<GameObject>();
     }
 
     public string GetGameState()
@@ -38,5 +40,21 @@ public class GameController : MonoBehaviour
             msp.GetComponent<MinionSpawner>().WaveSize = waves[waveCounter];
             waveCounter++;
         }
+    }
+
+    public void Restart()
+    {
+        // reset wave
+        waveCounter = 0;
+        // reset minions destroyed
+        MinionController.minionsDestroyed = 0;
+        // reset player stats
+        PlayerController.Instance.Reset();
+        // remove all towers
+        foreach(GameObject turret in towers)
+        {
+            Destroy(turret);
+        }
+        
     }
 }

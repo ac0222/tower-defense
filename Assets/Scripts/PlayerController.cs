@@ -24,6 +24,12 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void Reset()
+    {
+        Money = startingMoney;
+        Lives = maxLives;
+    }
+
     public static void ChangeMoney(float amount) 
     {
         Money += amount;

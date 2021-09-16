@@ -22,6 +22,6 @@ public class WaveControlPanel : MonoBehaviour
 
     void RestartListener()
     {
-        Debug.Log("restart clicked");
+        GameController.Instance.Restart();
     }
 }

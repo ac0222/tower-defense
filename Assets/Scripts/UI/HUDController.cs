@@ -29,6 +29,11 @@ public class HUDController : MonoBehaviour
             Destroy(gameOverPanel.GetComponentInChildren<VideoPlayer>().gameObject);
             gameOverPanel.SetActive(true);
         }
+        if (GameController.Instance.GetGameState() == Constants.IN_PROGRESS
+            && gameOverPanel.activeSelf == true)
+        {
+            gameOverPanel.SetActive(false);
+        }
         
     }
 }
