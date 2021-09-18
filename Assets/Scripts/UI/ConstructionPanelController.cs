@@ -24,7 +24,7 @@ public class ConstructionPanelController : MonoBehaviour
     {
         isInBuildMode = false;
         buildTurretButton.onClick.AddListener(() => TryEnterBuildMode());
-        buildTurretButton.GetComponentInChildren<Text>().text = $"Build Turret\n Cost = {TurretController.cost}";
+        buildTurretButton.GetComponentInChildren<Text>().text = $"Build Turret\n Cost = {TurretCosts.PROJECTILE_TURRET_COST}";
     }
 
     // Update is called once per frame
@@ -40,10 +40,10 @@ public class ConstructionPanelController : MonoBehaviour
         {
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             worldPosition.z = 0;
-            if (PlayerController.Money >= TurretController.cost)
+            if (PlayerController.Money >= TurretCosts.PROJECTILE_TURRET_COST)
             {
                 BuildTurretAtPosition(worldPosition);
-                PlayerController.ChangeMoney(-1 * TurretController.cost);
+                PlayerController.ChangeMoney(-1 * TurretCosts.PROJECTILE_TURRET_COST);
                 ExitBuildMode();
             }
         }
@@ -84,7 +84,7 @@ public class ConstructionPanelController : MonoBehaviour
 
     bool CanEnterBuildMode()
     {
-        return PlayerController.Money >= TurretController.cost;
+        return PlayerController.Money >= TurretCosts.PROJECTILE_TURRET_COST;
     }
 
     void ExitBuildMode()
