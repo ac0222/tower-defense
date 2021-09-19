@@ -26,6 +26,7 @@ public class Bullet : MonoBehaviour
         if (mc != null) 
         {
             mc.ChangeHealth(-1 * bulletDamage);
+            Destroy(gameObject);
         }
     }
 }

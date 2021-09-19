@@ -16,13 +16,13 @@ public class UpgradedShinobiLookout : ProjectileTurret
 
     void Update()
     {
-        timeUntilNexShot -= Time.deltaTime;
+        timeUntilNextShot -= Time.deltaTime;
         timeUntilNextFireball -= Time.deltaTime;
     }
     
     void FixedUpdate()
     {
-        if (timeUntilNexShot < 0)
+        if (timeUntilNextShot < 0)
         {
             GameObject target = AcquireTarget();
             if (target == null) {
@@ -31,7 +31,7 @@ public class UpgradedShinobiLookout : ProjectileTurret
             // shoot
             ShootAtTarget(target, projectilePrefab, throwingForce);
             // reload
-            timeUntilNexShot = reloadTime; 
+            timeUntilNextShot = reloadTime; 
         }
 
         if (timeUntilNextFireball < 0)

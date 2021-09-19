@@ -15,12 +15,12 @@ public class ProjectileTurret : MonoBehaviour
     // instance variables
     protected CircleCollider2D rangeCollider;
     protected Queue<GameObject> targetsInRange;
-    protected float timeUntilNexShot;
+    protected float timeUntilNextShot;
 
     // Start is called before the first frame update
     void Start()
     {
-        timeUntilNexShot = 0;
+        timeUntilNextShot = 0;
         rangeCollider = GetComponent<CircleCollider2D>();
         targetsInRange = new Queue<GameObject>();
     }
@@ -28,12 +28,12 @@ public class ProjectileTurret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeUntilNexShot -= Time.deltaTime;
+        timeUntilNextShot -= Time.deltaTime;
     }
 
     void FixedUpdate()
     {
-        if (timeUntilNexShot < 0)
+        if (timeUntilNextShot < 0)
         {
             GameObject target = AcquireTarget();
             if (target == null) {
@@ -42,7 +42,7 @@ public class ProjectileTurret : MonoBehaviour
             // shoot
             ShootAtTarget(target, projectilePrefab, throwingForce);
             // reload
-            timeUntilNexShot = reloadTime; 
+            timeUntilNextShot = reloadTime; 
         }
     }
 

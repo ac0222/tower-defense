@@ -43,5 +43,12 @@ public class TurretMetadata
             TurretDescription = "One genin chucking kunas, one chunin chucking fireballs",
             TurretCursorTextureName = ""
         },
+        new TurretMetadata {
+            TurretName = "Eva03",
+            TurretCost = 150,
+            TurretPrefabName = "Prefabs/EvaThree",
+            TurretDescription = "Shinji's robot",
+            TurretCursorTextureName = ""
+        },
     };
 }
