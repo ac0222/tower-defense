@@ -5,14 +5,20 @@ using UnityEngine.UI;
 
 public class ConstructionPanelController : MonoBehaviour
 {
+    // error display
     float errorMessageTimer = 0;
     float timeToShowErrorMessage = 3.0f;
     public Text errorMessage;
+
+    // build mode
     public Sprite buildModeCursor;
-    public Button buildTurretButton;
-    public GameObject turretPrefab;
-    bool isInBuildMode;
-    Texture2D buildModeCursorTexture;
+    private GameObject turretPrefab;
+    private Texture2D buildModeCursorTexture;
+    private float buildCost;
+    private bool isInBuildMode;
+
+    // button grid
+    GameObject buttonGrid;
 
     void Awake()
     {
@@ -22,9 +28,8 @@ public class ConstructionPanelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isInBuildMode = false;
-        buildTurretButton.onClick.AddListener(() => TryEnterBuildMode());
-        buildTurretButton.GetComponentInChildren<Text>().text = $"Build Turret\n Cost = {TurretCosts.PROJECTILE_TURRET_COST}";
+        buttonGrid = gameObject.GetComponentInChildren<GridLayoutGroup>().gameObject;
+        FillButtonGrid();
     }
 
     // Update is called once per frame
@@ -34,16 +39,38 @@ public class ConstructionPanelController : MonoBehaviour
         UpdateErrorMessage();
     }
 
+    void FillButtonGrid()
+    {
+        foreach(TurretMetadata tmd in TurretMetadata.turretMetadataList)
+        {
+            GameObject buttonObject = DefaultControls.CreateButton(new DefaultControls.Resources());
+            
+            TurretMetadata tmdCopy = tmd.CreateCopy();
+
+            Button myButton = buttonObject.GetComponent<Button>();
+            myButton.onClick.AddListener(() => {
+                SetTurrentBuildModeData(tmdCopy);
+                TryEnterBuildMode();
+            });
+            
+            Text buttonText = buttonObject.GetComponentInChildren<Text>();
+            buttonText.text = $"{tmdCopy.TurretName}";
+            
+            buttonObject.transform.SetParent(buttonGrid.transform);
+
+        }
+    }
+
     void ListenForConstructTurretClick()
     {
         if (isInBuildMode && Input.GetMouseButtonDown(0))
         {
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             worldPosition.z = 0;
-            if (PlayerController.Money >= TurretCosts.PROJECTILE_TURRET_COST)
+            if (PlayerController.Money >= buildCost)
             {
                 BuildTurretAtPosition(worldPosition);
-                PlayerController.ChangeMoney(-1 * TurretCosts.PROJECTILE_TURRET_COST);
+                PlayerController.ChangeMoney(-1 * buildCost);
                 ExitBuildMode();
             }
         }
@@ -65,6 +92,13 @@ public class ConstructionPanelController : MonoBehaviour
         }
     }
 
+    void SetTurrentBuildModeData(TurretMetadata turretMetadata)
+    {
+        buildCost = turretMetadata.TurretCost;
+        turretPrefab = Resources.Load(turretMetadata.TurretPrefabName) as GameObject;
+        Debug.Log(turretPrefab);
+    }
+
     void TryEnterBuildMode()
     {
         if (CanEnterBuildMode())
@@ -84,7 +118,7 @@ public class ConstructionPanelController : MonoBehaviour
 
     bool CanEnterBuildMode()
     {
-        return PlayerController.Money >= TurretCosts.PROJECTILE_TURRET_COST;
+        return PlayerController.Money >= buildCost;
     }
 
     void ExitBuildMode()

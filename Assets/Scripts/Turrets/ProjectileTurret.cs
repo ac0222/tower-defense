@@ -40,7 +40,7 @@ public class ProjectileTurret : MonoBehaviour
                 return;
             }
             // shoot
-            ShootAtTarget(target, projectilePrefab);
+            ShootAtTarget(target, projectilePrefab, throwingForce);
             // reload
             timeUntilNexShot = reloadTime; 
         }
@@ -67,7 +67,7 @@ public class ProjectileTurret : MonoBehaviour
         return target;
     }
 
-    protected void ShootAtTarget(GameObject target, GameObject projectilePrefab)
+    protected void ShootAtTarget(GameObject target, GameObject projectilePrefab, float throwingForce)
     {
         Vector2 directionOfTarget = (target.transform.position - this.transform.position).normalized;
         // rotate towards target

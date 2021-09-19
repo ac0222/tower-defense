@@ -29,7 +29,7 @@ public class UpgradedShinobiLookout : ProjectileTurret
                 return;
             }
             // shoot
-            ShootAtTarget(target, projectilePrefab);
+            ShootAtTarget(target, projectilePrefab, throwingForce);
             // reload
             timeUntilNexShot = reloadTime; 
         }
@@ -41,7 +41,7 @@ public class UpgradedShinobiLookout : ProjectileTurret
                 return;
             }
             // shoot
-            ShootAtTarget(target, fireballPrefab);
+            ShootAtTarget(target, fireballPrefab, fireballThrowingForce);
             // reload
             timeUntilNextFireball = fireballReloadTime; 
         }
