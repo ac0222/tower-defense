@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class EvaThree : ProjectileTurret
+public class EvaOne : ProjectileTurret
 {
     public int clipSize = 50;
     public float roundsPerSecond = 5;
-    private int roundsLeftInClip;
+    protected int roundsLeftInClip;
     
     void Start()
     {
@@ -36,7 +36,7 @@ public class EvaThree : ProjectileTurret
         }
     }
 
-    void Reload()
+    protected void Reload()
     {
         timeUntilNextShot = reloadTime;
         roundsLeftInClip = clipSize;

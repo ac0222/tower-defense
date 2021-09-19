@@ -44,11 +44,18 @@ public class TurretMetadata
             TurretCursorTextureName = ""
         },
         new TurretMetadata {
-            TurretName = "Eva03",
+            TurretName = "Eva01",
             TurretCost = 150,
-            TurretPrefabName = "Prefabs/EvaThree",
+            TurretPrefabName = "Prefabs/EvaOne",
             TurretDescription = "Shinji's robot",
             TurretCursorTextureName = ""
         },
+         new TurretMetadata {
+            TurretName = "Berserk Eva01",
+            TurretCost = 200,
+            TurretPrefabName = "Prefabs/UpgradedEvaOne",
+            TurretDescription = "Shinji's robot, in berserk mode",
+            TurretCursorTextureName = ""
+        }
     };
 }

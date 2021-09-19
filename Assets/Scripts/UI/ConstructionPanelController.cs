@@ -96,7 +96,6 @@ public class ConstructionPanelController : MonoBehaviour
     {
         buildCost = turretMetadata.TurretCost;
         turretPrefab = Resources.Load(turretMetadata.TurretPrefabName) as GameObject;
-        Debug.Log(turretPrefab);
     }
 
     void TryEnterBuildMode()
