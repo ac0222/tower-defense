@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Fireball : MonoBehaviour
 {
-    public float bulletDamage = 2.0f;
-    // Start is called before the first frame update
-    void Start()
+    public float damage = 2.0f;
+
+    private CircleCollider2D aoe;
+
+    void Awake()
     {
-        
+        aoe = gameObject.GetComponent<CircleCollider2D>();
+
     }
 
     // Update is called once per frame
@@ -25,7 +29,29 @@ public class Fireball : MonoBehaviour
         MinionController mc = collider.gameObject.GetComponent<MinionController>();
         if (mc != null) 
         {
-            mc.ChangeHealth(-1 * bulletDamage);
+            Collider2D[] collidersInAoe = Physics2D.OverlapCircleAll(
+                mc.transform.position, 
+                aoe.radius, 
+                LayerMask.GetMask("Minion"));
+            
+            List<GameObject> minionsInAoe = collidersInAoe == null 
+                ? new List<GameObject>() 
+                : collidersInAoe.Select(cl => cl.gameObject).ToList();
+            
+            if (minionsInAoe == null)
+            {
+                return;
+            }
+            // do aoe damage
+            foreach(GameObject minion in minionsInAoe)
+            {
+                MinionController mcInAoe = minion.GetComponent<MinionController>();
+                if (mcInAoe != null)
+                {
+                    mcInAoe.ChangeHealth(-1 * damage);
+                }
+            }
+            Destroy(gameObject);
         }
     }
 }

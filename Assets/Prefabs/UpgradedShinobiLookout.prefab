@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1230460081481770684}
   - component: {fileID: 5870487525592521362}
   - component: {fileID: 1098429700056110025}
+  - component: {fileID: 4160080994330049431}
   m_Layer: 0
   m_Name: UpgradedShinobiLookout
   m_TagString: Untagged
@@ -99,3 +100,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5
+--- !u!114 &4160080994330049431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4273778301722544282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602c6c31fc20d7f44a70719124fbeddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 714955638229831458, guid: 30e8a119561e03d46a38dfec58d8b600, type: 3}
+  reloadTime: 0.5
+  throwingForce: 1000
+  fireballPrefab: {fileID: 7227520785658761995, guid: 4c5a7593424cb4c47a5dd77e309e0ce9, type: 3}
+  fireballReloadTime: 1
+  fireballThrowingForce: 300

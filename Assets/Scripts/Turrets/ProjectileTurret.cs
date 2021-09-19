@@ -13,9 +13,9 @@ public class ProjectileTurret : MonoBehaviour
     public float throwingForce = 1000;
 
     // instance variables
-    private CircleCollider2D rangeCollider;
-    private Queue<GameObject> targetsInRange;
-    private float timeUntilNexShot;
+    protected CircleCollider2D rangeCollider;
+    protected Queue<GameObject> targetsInRange;
+    protected float timeUntilNexShot;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +46,7 @@ public class ProjectileTurret : MonoBehaviour
         }
     }
 
-    GameObject AcquireTarget()
+    protected GameObject AcquireTarget()
     {
         List<GameObject> minionsInRange = Physics2D.OverlapCircleAll(
             rangeCollider.transform.position, 
@@ -67,7 +67,7 @@ public class ProjectileTurret : MonoBehaviour
         return target;
     }
 
-    void ShootAtTarget(GameObject target, GameObject projectilePrefab)
+    protected void ShootAtTarget(GameObject target, GameObject projectilePrefab)
     {
         Vector2 directionOfTarget = (target.transform.position - this.transform.position).normalized;
         // rotate towards target
