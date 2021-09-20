@@ -13,6 +13,9 @@ public class MinionController : MonoBehaviour
     public float speed;
     bool destroyedByTurret = false;
     public List<Vector3> Path {get; set;}
+
+    public Vector3? FearPoint {get; set;} = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,14 @@ public class MinionController : MonoBehaviour
 
     void FixedUpdate()
     {
-        FollowPath();
+        if (FearPoint != null)
+        {
+            RotateAndMoveAwayFrom((Vector3)FearPoint);
+        }
+        else
+        {
+            FollowPath();
+        }
     }
 
     void RotateAndMoveTo(Vector3 destinationVector)
@@ -53,6 +63,19 @@ public class MinionController : MonoBehaviour
                 this.transform.position += vectorMove;
             }
         }
+    }
+
+    void RotateAndMoveAwayFrom(Vector3 location)
+    {
+        Vector3 vectorTo = this.transform.position - location;
+        Vector3 directionTo = vectorTo.normalized;
+        Vector3 vectorMove = directionTo * speed * Time.deltaTime;
+
+        // rotate towards destination
+        float angle = Mathf.Atan2(directionTo.y , directionTo.x) * Mathf.Rad2Deg + 90;
+        this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);        
+
+        this.transform.position += vectorMove;
     }
 
     void FollowPath()

@@ -22,7 +22,13 @@ public class EvaRoar : MonoBehaviour
         GameObject slowPrefab = Resources.Load("Prefabs/Effects/SlowEffect") as GameObject;
         slowPrefab.GetComponent<SlowEffect>().SlowDuration = 1;
         slowPrefab.GetComponent<SlowEffect>().SlowPercentage = 0.5f;
-        effects.Add(slowPrefab);   
+        effects.Add(slowPrefab);  
+
+        // add fear effect
+        GameObject fearPrefab = Resources.Load("Prefabs/Effects/FearEffect") as GameObject;
+        fearPrefab.GetComponent<FearEffect>().FearDuration = 1;
+        fearPrefab.GetComponent<FearEffect>().FearPoint = gameObject.transform.position;
+        effects.Add(fearPrefab);   
     }
 
     void Start()
