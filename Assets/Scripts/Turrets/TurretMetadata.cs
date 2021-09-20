@@ -25,35 +25,35 @@ public class TurretMetadata
         new TurretMetadata {
             TurretName = "Default Turret",
             TurretCost = 100,
-            TurretPrefabName = "Prefabs/Turret",
+            TurretPrefabName = "Prefabs/Turrets/Turret",
             TurretDescription = "This is the default scrub turret",
             TurretCursorTextureName = "",
         },
         new TurretMetadata {
             TurretName = "Shinobi Lookout",
             TurretCost = 50,
-            TurretPrefabName = "Prefabs/ShinobiLookout",
+            TurretPrefabName = "Prefabs/Turrets/ShinobiLookout",
             TurretDescription = "Genin chucking kunais",
             TurretCursorTextureName = ""
         },
         new TurretMetadata {
             TurretName = "Upgraded Shinobi Lookout",
             TurretCost = 200,
-            TurretPrefabName = "Prefabs/UpgradedShinobiLookout",
+            TurretPrefabName = "Prefabs/Turrets/UpgradedShinobiLookout",
             TurretDescription = "One genin chucking kunas, one chunin chucking fireballs",
             TurretCursorTextureName = ""
         },
         new TurretMetadata {
             TurretName = "Eva01",
             TurretCost = 150,
-            TurretPrefabName = "Prefabs/EvaOne",
+            TurretPrefabName = "Prefabs/Turrets/EvaOne",
             TurretDescription = "Shinji's robot",
             TurretCursorTextureName = ""
         },
          new TurretMetadata {
             TurretName = "Berserk Eva01",
             TurretCost = 200,
-            TurretPrefabName = "Prefabs/UpgradedEvaOne",
+            TurretPrefabName = "Prefabs/Turrets/UpgradedEvaOne",
             TurretDescription = "Shinji's robot, in berserk mode",
             TurretCursorTextureName = ""
         }
