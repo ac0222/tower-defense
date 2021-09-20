@@ -41,7 +41,6 @@ public class EvaRoar : MonoBehaviour
             MinionController mcInAoe = minion.GetComponent<MinionController>();
             if (mcInAoe != null)
             {
-                Debug.Log(mcInAoe.speed);
                 mcInAoe.speed = 1;
             }
         }

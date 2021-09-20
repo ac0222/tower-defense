@@ -5,10 +5,20 @@ using UnityEngine;
 public class Kunai : MonoBehaviour
 {
     public float damage = 2.0f;
-    // Start is called before the first frame update
-    void Start()
+    private List<GameObject> effects;
+
+    void Awake()
     {
-        
+       InitEffects();
+    }
+
+    void InitEffects()
+    {
+        effects = new List<GameObject>();
+        // add basic damage effect
+        GameObject instantDamagePrefab = Resources.Load("Prefabs/Effects/InstantDamageEffect") as GameObject;
+        instantDamagePrefab.GetComponent<InstantDamageEffect>().Damage = damage;
+        effects.Add(instantDamagePrefab);   
     }
 
     // Update is called once per frame
@@ -25,8 +35,21 @@ public class Kunai : MonoBehaviour
         MinionController mc = collider.gameObject.GetComponent<MinionController>();
         if (mc != null) 
         {
-            mc.ChangeHealth(-1 * damage);
+            ApplyEffectsToMinion(mc);
             Destroy(gameObject);
+        }
+    }
+
+    void ApplyEffectsToMinion(MinionController mc)
+    {
+        foreach(GameObject effect in effects)
+        {
+            GameObject effectOnMinion = Instantiate(effect, mc.transform.position, Quaternion.identity);
+            effectOnMinion.transform.SetParent(mc.gameObject.transform);
+            IEffect ec = effectOnMinion.GetComponent<IEffect>();
+            ec.TargetMinion = mc;
+            ec.CopyEffect(effect.GetComponent<IEffect>());
+            ec.Invoke();
         }
     }
 }

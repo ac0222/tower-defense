@@ -6,13 +6,23 @@ using System.Linq;
 public class Fireball : MonoBehaviour
 {
     public float damage = 2.0f;
+    private List<GameObject> effects;
 
     private CircleCollider2D aoe;
 
     void Awake()
     {
         aoe = gameObject.GetComponent<CircleCollider2D>();
+        InitEffects();
+    }
 
+    void InitEffects()
+    {
+        effects = new List<GameObject>();
+        // add basic damage effect
+        GameObject instantDamagePrefab = Resources.Load("Prefabs/Effects/InstantDamageEffect") as GameObject;
+        instantDamagePrefab.GetComponent<InstantDamageEffect>().Damage = damage;
+        effects.Add(instantDamagePrefab);   
     }
 
     // Update is called once per frame
@@ -48,10 +58,23 @@ public class Fireball : MonoBehaviour
                 MinionController mcInAoe = minion.GetComponent<MinionController>();
                 if (mcInAoe != null)
                 {
-                    mcInAoe.ChangeHealth(-1 * damage);
+                    ApplyEffectsToMinion(mcInAoe);
                 }
             }
             Destroy(gameObject);
+        }
+    }
+
+    void ApplyEffectsToMinion(MinionController mc)
+    {
+        foreach(GameObject effect in effects)
+        {
+            GameObject effectOnMinion = Instantiate(effect, mc.transform.position, Quaternion.identity);
+            effectOnMinion.transform.SetParent(mc.gameObject.transform);
+            IEffect ec = effectOnMinion.GetComponent<IEffect>();
+            ec.TargetMinion = mc;
+            ec.CopyEffect(effect.GetComponent<IEffect>());
+            ec.Invoke();
         }
     }
 }
