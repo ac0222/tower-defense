@@ -50,11 +50,25 @@ public class TurretMetadata
             TurretDescription = "Shinji's robot",
             TurretCursorTextureName = ""
         },
-         new TurretMetadata {
+        new TurretMetadata {
             TurretName = "Berserk Eva01",
             TurretCost = 200,
             TurretPrefabName = "Prefabs/Turrets/UpgradedEvaOne",
             TurretDescription = "Shinji's robot, in berserk mode",
+            TurretCursorTextureName = ""
+        },
+        new TurretMetadata {
+            TurretName = "Byakuya",
+            TurretCost = 150,
+            TurretPrefabName = "Prefabs/Turrets/Byakuya",
+            TurretDescription = "5th Squad Captain Kuchiki Byakuya",
+            TurretCursorTextureName = ""
+        },
+        new TurretMetadata {
+            TurretName = "Bankai Byakuya",
+            TurretCost = 250,
+            TurretPrefabName = "Prefabs/Turrets/UpgradedByakuya",
+            TurretDescription = "ban-KAI!",
             TurretCursorTextureName = ""
         }
     };
