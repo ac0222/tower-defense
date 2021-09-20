@@ -5,11 +5,24 @@ using System.Linq;
 
 public class EvaRoar : MonoBehaviour
 {
+    private List<GameObject> effects;
+
     private CircleCollider2D aoe;
 
     void Awake()
     {
         aoe = gameObject.GetComponent<CircleCollider2D>();
+        InitEffects();
+    }
+
+    void InitEffects()
+    {
+        effects = new List<GameObject>();
+        // add slow effect
+        GameObject slowPrefab = Resources.Load("Prefabs/Effects/SlowEffect") as GameObject;
+        slowPrefab.GetComponent<SlowEffect>().SlowDuration = 1;
+        slowPrefab.GetComponent<SlowEffect>().SlowPercentage = 0.5f;
+        effects.Add(slowPrefab);   
     }
 
     void Start()
@@ -33,7 +46,6 @@ public class EvaRoar : MonoBehaviour
         {
             return;
         }
-        Debug.Log(minionsInAoe.Count);
 
         // apply roar effect
         foreach(GameObject minion in minionsInAoe)
@@ -41,9 +53,22 @@ public class EvaRoar : MonoBehaviour
             MinionController mcInAoe = minion.GetComponent<MinionController>();
             if (mcInAoe != null)
             {
-                mcInAoe.speed = 1;
+                ApplyEffectsToMinion(mcInAoe);
             }
         }
         Destroy(gameObject);
+    }
+
+    void ApplyEffectsToMinion(MinionController mc)
+    {
+        foreach(GameObject effect in effects)
+        {
+            GameObject effectOnMinion = Instantiate(effect, mc.transform.position, Quaternion.identity);
+            effectOnMinion.transform.SetParent(mc.gameObject.transform);
+            IEffect ec = effectOnMinion.GetComponent<IEffect>();
+            ec.TargetMinion = mc;
+            ec.CopyEffect(effect.GetComponent<IEffect>());
+            ec.Invoke();
+        }
     }
 }

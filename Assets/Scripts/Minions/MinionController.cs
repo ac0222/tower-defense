@@ -8,12 +8,15 @@ public class MinionController : MonoBehaviour
     public float moneyReward = 10;
     public float maxHealth = 10;
     float currentHealth;
-    public float speed = 10f;
+
+    public float initialSpeed = 10f;
+    public float speed;
     bool destroyedByTurret = false;
     public List<Vector3> Path {get; set;}
     // Start is called before the first frame update
     void Start()
     {
+        speed = initialSpeed;
         currentHealth = maxHealth;
     }
 

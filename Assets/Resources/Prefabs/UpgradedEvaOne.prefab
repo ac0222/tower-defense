@@ -118,4 +118,4 @@ MonoBehaviour:
   clipSize: 10
   roundsPerSecond: 10
   roarPrefab: {fileID: 2880230114597059491, guid: cb1d7bc7c344b4b46bbf50ffe20fea8b, type: 3}
-  roarCooldown: 10
+  roarCooldown: 4
