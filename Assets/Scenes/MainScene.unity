@@ -7057,4 +7057,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   errorMessage: {fileID: 1640988979}
-  buildModeCursor: {fileID: 21300000, guid: 83b0d163c03fed4418c348da8ac9a008, type: 3}
