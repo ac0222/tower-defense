@@ -12,10 +12,12 @@ public class SenbonzakuraPetal : MonoBehaviour
     public Vector3 FocalPoint {get; set;}
     public float damage = 2.0f;
     private List<GameObject> effects;
-
+    private float rotationSpeed;
 
     void Awake()
     {
+        rotationSpeed = (Random.value * 720) + 180;
+        transform.Rotate(Vector3.forward * Random.value * 360);
         InitEffects();
     }
 
@@ -35,6 +37,7 @@ public class SenbonzakuraPetal : MonoBehaviour
         float y= FocalPoint.y + (SemiMajorAxis * MCos(Alpha) * MSin(Tilt)) + ( SemiMinorAxis * MSin(Alpha) * MCos(Tilt));
         transform.position = new Vector2(x, y);
         Alpha += (Speed * Time.deltaTime);
+        transform.Rotate(rotationSpeed * Time.deltaTime * Vector3.forward);
     }
 
     float MCos(float value)

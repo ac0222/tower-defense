@@ -23,7 +23,7 @@ public class Byakuya : MonoBehaviour
             petal.transform.SetParent(transform);
             SenbonzakuraPetal petalScript = petal.GetComponent<SenbonzakuraPetal>();
             petalScript.FocalPoint = transform.position;
-            petalScript.Speed = petalSpeed;
+            petalScript.Speed = petalSpeed + (Random.value - 0.5f) * (0.2f * petalSpeed);
             petalScript.Tilt = i * (360/numberOfPetals);
             petalScript.SemiMajorAxis = orbitRadius.radius;
             petalScript.SemiMinorAxis = orbitRadius.radius* (2.0f/3.0f);
