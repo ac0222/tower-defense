@@ -11,7 +11,6 @@ public class ConstructionPanelController : MonoBehaviour
     public Text errorMessage;
 
     // build mode
-    public Sprite buildModeCursor;
     private GameObject turretPrefab;
     private Texture2D buildModeCursorTexture;
     private float buildCost;
@@ -19,11 +18,6 @@ public class ConstructionPanelController : MonoBehaviour
 
     // button grid
     GameObject buttonGrid;
-
-    void Awake()
-    {
-        buildModeCursorTexture = buildModeCursor.texture;
-    }
     
     // Start is called before the first frame update
     void Start()
@@ -95,7 +89,8 @@ public class ConstructionPanelController : MonoBehaviour
     void SetTurrentBuildModeData(TurretMetadata turretMetadata)
     {
         buildCost = turretMetadata.TurretCost;
-        turretPrefab = Resources.Load(turretMetadata.TurretPrefabName) as GameObject;
+        turretPrefab = Resources.Load<GameObject>(turretMetadata.TurretPrefabName);
+        buildModeCursorTexture = turretPrefab.GetComponent<SpriteRenderer>().sprite.texture;
     }
 
     void TryEnterBuildMode()
