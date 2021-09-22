@@ -9,6 +9,9 @@ public class EvaRoar : MonoBehaviour
 
     private CircleCollider2D aoe;
 
+    private float roarDuration = 1;
+    private float timeRemaining;
+
     void Awake()
     {
         aoe = gameObject.GetComponent<CircleCollider2D>();
@@ -34,11 +37,29 @@ public class EvaRoar : MonoBehaviour
     void Start()
     {
         Roar();
+        timeRemaining = roarDuration;
     }
     
+    void Update()
+    {
+        transform.Rotate(Vector3.forward * Random.value * 20 * Time.deltaTime);
+        timeRemaining -= Time.deltaTime;
+        if (timeRemaining <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        MinionController mc = collider.gameObject.GetComponent<MinionController>();
+        if (mc != null) 
+        {
+            ApplyEffectsToMinion(mc);
+        }
+    }
     void Roar()
     {
-        Debug.Log("roaring!!");
         Collider2D[] collidersInAoe = Physics2D.OverlapCircleAll(
             this.transform.position, 
             aoe.radius, 
