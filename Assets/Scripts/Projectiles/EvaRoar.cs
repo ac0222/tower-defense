@@ -62,7 +62,6 @@ public class EvaRoar : MonoBehaviour
                 ApplyEffectsToMinion(mcInAoe);
             }
         }
-        Destroy(gameObject);
     }
 
     void ApplyEffectsToMinion(MinionController mc)
