@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5585334821315287925}
   - component: {fileID: 1424640369953772078}
   - component: {fileID: 2359903454046576709}
+  - component: {fileID: 1500594530003302524}
+  - component: {fileID: -67849933279210901}
   m_Layer: 0
   m_Name: UpgradedByakuya
   m_TagString: Untagged
@@ -91,7 +93,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2861109131113269629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -115,3 +117,32 @@ MonoBehaviour:
   petalSpeed: 180
   numberOfPetals: 12
   projectilePrefab: {fileID: 7231594728778789978, guid: beab9ad6d904c5147af15e402d9d67bd, type: 3}
+--- !u!70 &1500594530003302524
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861109131113269629}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
+--- !u!114 &-67849933279210901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861109131113269629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f045edfa25d817942889f8e08d322d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretName: Bankai Byakuya

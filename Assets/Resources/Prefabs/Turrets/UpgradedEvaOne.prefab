@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5490345733306237355}
   - component: {fileID: 1330794902628616432}
   - component: {fileID: 5377284580769659647}
+  - component: {fileID: 1068367033540198553}
+  - component: {fileID: 3957275987207751834}
   m_Layer: 0
   m_Name: UpgradedEvaOne
   m_TagString: Untagged
@@ -91,7 +93,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2739890269556102051}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -119,3 +121,32 @@ MonoBehaviour:
   roundsPerSecond: 10
   roarPrefab: {fileID: 2880230114597059491, guid: cb1d7bc7c344b4b46bbf50ffe20fea8b, type: 3}
   roarCooldown: 4
+--- !u!70 &1068367033540198553
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2739890269556102051}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.3333334, y: 1.3333334}
+  m_Direction: 0
+--- !u!114 &3957275987207751834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2739890269556102051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f045edfa25d817942889f8e08d322d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretName: Berserk Eva01

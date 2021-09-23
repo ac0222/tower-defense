@@ -50,15 +50,21 @@ public class TurretMetadata
             TurretPrefabName = "Prefabs/Turrets/UpgradedShinobiLookout",
             TurretDescription = "One genin chucking kunas, one chunin chucking fireballs",
             TurretCursorTextureName = "",
-            TurretButtonImageName = "Art/Turrets/upgraded_shinobi_lookout"
+            TurretButtonImageName = "Art/Turrets/upgraded_shinobi_lookout",
+            IsBuildable = false,
+            IsUpgradeable = false
         },
         new TurretMetadata {
             TurretName = "Eva01",
             TurretCost = 150,
+            UpgradeCost = 100,
             TurretPrefabName = "Prefabs/Turrets/EvaOne",
+            UpgradePrefabName = "Prefabs/Turrets/UpgradedEvaOne",
             TurretDescription = "Shinji's robot",
             TurretCursorTextureName = "",
-            TurretButtonImageName = "Art/Turrets/eva01"
+            TurretButtonImageName = "Art/Turrets/eva01",
+            IsBuildable = true,
+            IsUpgradeable = true
         },
         new TurretMetadata {
             TurretName = "Berserk Eva01",
@@ -66,15 +72,21 @@ public class TurretMetadata
             TurretPrefabName = "Prefabs/Turrets/UpgradedEvaOne",
             TurretDescription = "Shinji's robot, in berserk mode",
             TurretCursorTextureName = "",
-            TurretButtonImageName = "Art/Turrets/berserk_eva01"
+            TurretButtonImageName = "Art/Turrets/berserk_eva01",
+            IsBuildable = false,
+            IsUpgradeable = false
         },
         new TurretMetadata {
             TurretName = "Byakuya",
             TurretCost = 150,
+            UpgradeCost = 150,
             TurretPrefabName = "Prefabs/Turrets/Byakuya",
+            UpgradePrefabName = "Prefabs/Turrets/UpgradedByakuya",
             TurretDescription = "5th Squad Captain Kuchiki Byakuya",
             TurretCursorTextureName = "",
-            TurretButtonImageName = "Art/Turrets/byakuya"
+            TurretButtonImageName = "Art/Turrets/byakuya",
+            IsBuildable = true,
+            IsUpgradeable = true
         },
         new TurretMetadata {
             TurretName = "Bankai Byakuya",
@@ -82,7 +94,9 @@ public class TurretMetadata
             TurretPrefabName = "Prefabs/Turrets/UpgradedByakuya",
             TurretDescription = "ban-KAI!",
             TurretCursorTextureName = "",
-            TurretButtonImageName = "Art/Turrets/byakuya_bankai"
+            TurretButtonImageName = "Art/Turrets/byakuya_bankai",
+            IsBuildable = false,
+            IsUpgradeable = false
         }
     };
 }

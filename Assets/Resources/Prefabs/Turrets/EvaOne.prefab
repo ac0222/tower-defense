@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3852162895677219230}
   - component: {fileID: 7724780626093500613}
   - component: {fileID: 5734751662472848622}
+  - component: {fileID: 2316881608420295600}
+  - component: {fileID: 7658519101430354113}
   m_Layer: 0
   m_Name: EvaOne
   m_TagString: Untagged
@@ -91,7 +93,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6864060101494043542}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -117,3 +119,32 @@ MonoBehaviour:
   throwingForce: 1000
   clipSize: 10
   roundsPerSecond: 10
+--- !u!70 &2316881608420295600
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864060101494043542}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.3333334, y: 1.3333334}
+  m_Direction: 0
+--- !u!114 &7658519101430354113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864060101494043542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f045edfa25d817942889f8e08d322d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretName: Eva01
