@@ -686,8 +686,8 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 50, y: 50}
-  m_Spacing: {x: 0, y: 0}
+  m_CellSize: {x: 50, y: 70}
+  m_Spacing: {x: 5, y: 5}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &194638057
@@ -7057,3 +7057,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   errorMessage: {fileID: 1640988979}
+  construcTurretButtonPrefab: {fileID: 448389940603169698, guid: d90eeaf1b32b16f45a9e2641289d95f3, type: 3}

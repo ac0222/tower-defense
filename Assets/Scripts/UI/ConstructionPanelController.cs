@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ConstructionPanelController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ConstructionPanelController : MonoBehaviour
     private Texture2D buildModeCursorTexture;
     private float buildCost;
     private bool isInBuildMode;
+    public GameObject construcTurretButtonPrefab;
 
     // button grid
     GameObject buttonGrid;
@@ -37,7 +39,7 @@ public class ConstructionPanelController : MonoBehaviour
     {
         foreach(TurretMetadata tmd in TurretMetadata.turretMetadataList)
         {
-            GameObject buttonObject = DefaultControls.CreateButton(new DefaultControls.Resources());
+             GameObject buttonObject = Instantiate(construcTurretButtonPrefab, Vector3.zero, Quaternion.identity);
             
             TurretMetadata tmdCopy = tmd.CreateCopy();
 
@@ -48,10 +50,15 @@ public class ConstructionPanelController : MonoBehaviour
             });
             
             Text buttonText = buttonObject.GetComponentInChildren<Text>();
-            buttonText.text = $"{tmdCopy.TurretName}";
+            buttonText.text = $"${tmdCopy.TurretCost}";
+
+            Image buttonImage = buttonObject.GetComponentsInChildren<Image>()
+                .Where(img => img.gameObject.GetInstanceID() != buttonObject.GetInstanceID())
+                .First();
+            buttonImage.sprite = Resources.Load<Sprite>(tmdCopy.TurretButtonImageName);
             
             buttonObject.transform.SetParent(buttonGrid.transform);
-
+            buttonObject.transform.localScale = Vector3.one;
         }
     }
 
