@@ -39,26 +39,29 @@ public class ConstructionPanelController : MonoBehaviour
     {
         foreach(TurretMetadata tmd in TurretMetadata.turretMetadataList)
         {
-             GameObject buttonObject = Instantiate(construcTurretButtonPrefab, Vector3.zero, Quaternion.identity);
-            
-            TurretMetadata tmdCopy = tmd.CreateCopy();
+            if (tmd.IsBuildable)
+            {
+                GameObject buttonObject = Instantiate(construcTurretButtonPrefab, Vector3.zero, Quaternion.identity);
+                
+                TurretMetadata tmdCopy = tmd.CreateCopy();
 
-            Button myButton = buttonObject.GetComponent<Button>();
-            myButton.onClick.AddListener(() => {
-                SetTurrentBuildModeData(tmdCopy);
-                TryEnterBuildMode();
-            });
-            
-            Text buttonText = buttonObject.GetComponentInChildren<Text>();
-            buttonText.text = $"${tmdCopy.TurretCost}";
+                Button myButton = buttonObject.GetComponent<Button>();
+                myButton.onClick.AddListener(() => {
+                    SetTurrentBuildModeData(tmdCopy);
+                    TryEnterBuildMode();
+                });
+                
+                Text buttonText = buttonObject.GetComponentInChildren<Text>();
+                buttonText.text = $"${tmdCopy.TurretCost}";
 
-            Image buttonImage = buttonObject.GetComponentsInChildren<Image>()
-                .Where(img => img.gameObject.GetInstanceID() != buttonObject.GetInstanceID())
-                .First();
-            buttonImage.sprite = Resources.Load<Sprite>(tmdCopy.TurretButtonImageName);
-            
-            buttonObject.transform.SetParent(buttonGrid.transform);
-            buttonObject.transform.localScale = Vector3.one;
+                Image buttonImage = buttonObject.GetComponentsInChildren<Image>()
+                    .Where(img => img.gameObject.GetInstanceID() != buttonObject.GetInstanceID())
+                    .First();
+                buttonImage.sprite = Resources.Load<Sprite>(tmdCopy.TurretButtonImageName);
+                
+                buttonObject.transform.SetParent(buttonGrid.transform);
+                buttonObject.transform.localScale = Vector3.one;
+            }
         }
     }
 

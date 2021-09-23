@@ -29,7 +29,15 @@ public class TurretInfoPanelController : MonoBehaviour
         selectedMetadata = turretMetadata;
         turretNameText.text = turretMetadata.TurretName;
         turretDescriptionText.text = turretMetadata.TurretDescription;
-        upgradeButton.GetComponentInChildren<Text>().text = $"Upgrade: ${turretMetadata.UpgradeCost}";
+        if (turretMetadata.IsUpgradeable)
+        {
+            upgradeButton.gameObject.SetActive(true);
+            upgradeButton.GetComponentInChildren<Text>().text = $"Upgrade: ${turretMetadata.UpgradeCost}";
+        }
+        else
+        {
+            upgradeButton.gameObject.SetActive(false);
+        }
         turretImage.sprite = Resources.Load<Sprite>(turretMetadata.TurretButtonImageName);
     }
 }
