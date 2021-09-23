@@ -21,9 +21,6 @@ public class TurretUIController : MonoBehaviour
     {
         TurretInfoPanelController turretInfoController = TurretInfoPanelController.Instance;
         turretInfoController.gameObject.SetActive(true);
-        turretInfoController.turretNameText.text = turretMetadata.TurretName;
-        turretInfoController.turretDescriptionText.text = turretMetadata.TurretDescription;
-        turretInfoController.upgradeButton.GetComponentInChildren<Text>().text = $"Upgrade: ${turretMetadata.UpgradeCost}";
-        turretInfoController.turretImage.sprite = Resources.Load<Sprite>(turretMetadata.TurretButtonImageName);
+        turretInfoController.FillInfo(gameObject, turretMetadata);
     }
 }
