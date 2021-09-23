@@ -5,20 +5,28 @@ public class TurretMetadata
 {
     public string TurretName {get; set;}
     public float TurretCost {get; set;}
+    public float UpgradeCost {get; set;}
     public string TurretPrefabName {get; set;}
+    public string UpgradePrefabName {get; set;}
     public string TurretDescription {get; set;}
     public string TurretCursorTextureName {get; set;}
     public string TurretButtonImageName {get; set;}
+    public bool IsBuildable {get; set;}
+    public bool IsUpgradeable {get; set;}
 
     public TurretMetadata CreateCopy()
     {
          TurretMetadata tmdCopy = new TurretMetadata {
             TurretName = TurretName,
             TurretCost = TurretCost,
+            UpgradeCost = UpgradeCost,
             TurretDescription = TurretDescription,
             TurretPrefabName = TurretPrefabName,
+            UpgradePrefabName = UpgradePrefabName,
             TurretCursorTextureName = TurretCursorTextureName,
-            TurretButtonImageName = TurretButtonImageName
+            TurretButtonImageName = TurretButtonImageName,
+            IsBuildable = IsBuildable,
+            IsUpgradeable = IsUpgradeable
         };
         return tmdCopy;
     }
@@ -27,10 +35,14 @@ public class TurretMetadata
         new TurretMetadata {
             TurretName = "Shinobi Lookout",
             TurretCost = 50,
+            UpgradeCost = 88,
             TurretPrefabName = "Prefabs/Turrets/ShinobiLookout",
+            UpgradePrefabName = "Prefabs/Turrets/UpgradedShinobiLookout",
             TurretDescription = "Genin chucking kunais",
             TurretCursorTextureName = "",
-            TurretButtonImageName = "Art/Turrets/shinobi_lookout"
+            TurretButtonImageName = "Art/Turrets/shinobi_lookout",
+            IsBuildable = true,
+            IsUpgradeable = true
         },
         new TurretMetadata {
             TurretName = "Upgraded Shinobi Lookout",

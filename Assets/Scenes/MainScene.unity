@@ -1157,7 +1157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: -174}
+  m_AnchoredPosition: {x: -14, y: -191}
   m_SizeDelta: {x: 115.2838, y: 37.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &480612811
@@ -1803,7 +1803,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.2343, y: -104}
+  m_AnchoredPosition: {x: -4, y: -133}
   m_SizeDelta: {x: 313.0384, y: 78.886}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792570636
@@ -2154,7 +2154,7 @@ GameObject:
   - component: {fileID: 1248525438}
   - component: {fileID: 1248525437}
   m_Layer: 5
-  m_Name: Image
+  m_Name: TurretImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2177,7 +2177,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2, y: 22}
-  m_SizeDelta: {x: 209.28, y: 157.1635}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1248525437
 MonoBehaviour:
@@ -2452,8 +2452,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 139}
-  m_SizeDelta: {x: 304.5697, y: 61.1817}
+  m_AnchoredPosition: {x: 7, y: 163}
+  m_SizeDelta: {x: 644.3748, y: 65.4161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1386100606
 MonoBehaviour:
@@ -2482,7 +2482,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 50
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -7287,6 +7287,7 @@ GameObject:
   - component: {fileID: 1793689609}
   - component: {fileID: 1793689611}
   - component: {fileID: 1793689610}
+  - component: {fileID: 1793689612}
   m_Layer: 5
   m_Name: TurretInfoPanel
   m_TagString: Untagged
@@ -7356,6 +7357,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793689608}
   m_CullTransparentMesh: 1
+--- !u!114 &1793689612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793689608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5279169fa5437740a58208a2bde0309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeButton: {fileID: 749858953}
+  upgradeButton: {fileID: 480612811}
+  turretNameText: {fileID: 1386100606}
+  turretDescriptionText: {fileID: 792570636}
+  turretImage: {fileID: 1248525437}
 --- !u!1 &1818744267
 GameObject:
   m_ObjectHideFlags: 0
