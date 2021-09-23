@@ -10,11 +10,14 @@ public class TurretInfoPanelController : MonoBehaviour
     public Button closeButton;
     public Button upgradeButton;
     public Text turretNameText;
+    public Text errorMessage;
     public Text turretDescriptionText;
     public Image turretImage;
+    private float timeToShowErrorMessage = 1.0f;
 
     private GameObject selectedTurret;
     private TurretMetadata selectedMetadata;
+    private float errorMessageTimer = 0;
 
     public static TurretInfoPanelController Instance {get; private set;}
     void Awake()
@@ -43,6 +46,23 @@ public class TurretInfoPanelController : MonoBehaviour
         turretImage.sprite = Resources.Load<Sprite>(turretMetadata.TurretButtonImageName);
     }
 
+    void Update()
+    {
+        UpdateErrorMessage();
+    }
+
+    void UpdateErrorMessage()
+    {
+        if (errorMessage.enabled)
+        {
+            errorMessageTimer -= Time.deltaTime;
+        }
+        if (errorMessageTimer <= 0)
+        {
+            errorMessage.enabled = false;
+        }
+    }
+
     void UpgradeTurret()
     {
         if (PlayerController.Money >= selectedMetadata.UpgradeCost)
@@ -59,7 +79,8 @@ public class TurretInfoPanelController : MonoBehaviour
         }
         else
         {
-            Debug.Log("not enough money");
+            errorMessage.enabled = true;
+            errorMessageTimer = timeToShowErrorMessage;
         }
     }
 }
