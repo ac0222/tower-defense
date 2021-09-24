@@ -44,6 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnFrequency: 0.2
-  minionPrefab: {fileID: 6596317122643394664, guid: afe47ef8bd2428b42acae836098e5a21, type: 3}
-  checkpoints: {fileID: 0}
-  destination: {fileID: 0}
+  minionPrefab: {fileID: 6615603748286183667, guid: 019dd8f2f9e20d049a6569719f3f46a0, type: 3}

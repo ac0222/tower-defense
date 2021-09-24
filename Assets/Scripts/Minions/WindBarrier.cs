@@ -5,6 +5,7 @@ using UnityEngine;
 public class WindBarrier : MonoBehaviour
 {
     public float windForce = 100;
+    public float windRotation = 100;
     void Awake()
     {
     }
@@ -28,5 +29,6 @@ public class WindBarrier : MonoBehaviour
     {
         Vector2 awayFromCenter = (objectToRepel.transform.position - this.transform.position).normalized;
         objectToRepel.GetComponent<Rigidbody2D>().AddForce(awayFromCenter * windForce);
+        objectToRepel.GetComponent<Rigidbody2D>().AddTorque(windRotation);
     }
 }
