@@ -6,6 +6,7 @@ public class WindBarrier : MonoBehaviour
 {
     public float windForce = 100;
     public float windRotation = 100;
+    public float rotationSpeed = 20;
     void Awake()
     {
     }
@@ -13,6 +14,12 @@ public class WindBarrier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    void FixedUpdate()
+    {
+        transform.Rotate(rotationSpeed * Time.deltaTime * Vector3.forward);
 
     }
 

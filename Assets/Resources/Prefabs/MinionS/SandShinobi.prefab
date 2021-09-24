@@ -116,8 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyReward: 10
   maxHealth: 50
-  initialSpeed: 1
-  speed: 1
+  initialSpeed: 2
+  speed: 2
 --- !u!50 &8451551836818473331
 Rigidbody2D:
   serializedVersion: 4
