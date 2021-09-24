@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class WaveControlPanel : MonoBehaviour
 {
@@ -23,6 +22,6 @@ public class WaveControlPanel : MonoBehaviour
 
     void RestartListener()
     {
-        SceneManager.LoadScene("MainScene");
+        GameController.Instance.Restart();
     }
 }

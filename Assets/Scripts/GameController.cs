@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
+
 
 public class GameController : MonoBehaviour
 {
@@ -50,11 +52,6 @@ public class GameController : MonoBehaviour
         MinionController.minionsDestroyed = 0;
         // reset player stats
         PlayerController.Instance.Reset();
-        // remove all towers
-        foreach(GameObject turret in towers)
-        {
-            Destroy(turret);
-        }
-        
+        SceneManager.LoadScene("MainScene");
     }
 }
