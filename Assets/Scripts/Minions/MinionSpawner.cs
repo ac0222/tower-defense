@@ -43,9 +43,4 @@ public class MinionSpawner : MonoBehaviour
         spawnTimer = currentSpawnEvent.TimeUntilNextSpawn;
         spawnIndex++;
     }
-
-    void OnDestroy()
-    {
-        Debug.Log("wave complete!");
-    }
 }
