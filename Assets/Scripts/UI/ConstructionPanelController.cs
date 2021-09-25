@@ -12,9 +12,10 @@ public class ConstructionPanelController : MonoBehaviour
     public Text errorMessage;
 
     // build mode
+    private string turretName;
     private GameObject turretPrefab;
     private Texture2D buildModeCursorTexture;
-    private float buildCost;
+    private int numberInInventory;
     private bool isInBuildMode;
     public GameObject construcTurretButtonPrefab;
 
@@ -37,31 +38,40 @@ public class ConstructionPanelController : MonoBehaviour
 
     void FillButtonGrid()
     {
-        foreach(TurretMetadata tmd in TurretMetadata.turretMetadataList)
+        ClearButtonGrid();
+        Dictionary<string, int> availableTurrets = PlayerController.Instance.PlayerInventory.AvailableTurrets;
+        foreach(var dictItem in availableTurrets)
         {
-            if (tmd.IsBuildable)
-            {
-                GameObject buttonObject = Instantiate(construcTurretButtonPrefab, Vector3.zero, Quaternion.identity);
-                
-                TurretMetadata tmdCopy = tmd.CreateCopy();
+            TurretMetadata tmd = TurretMetadata.turretMetadataList
+                .FirstOrDefault(td => td.TurretName == dictItem.Key);
+            GameObject buttonObject = Instantiate(construcTurretButtonPrefab, Vector3.zero, Quaternion.identity);
+            
+            TurretMetadata tmdCopy = tmd.CreateCopy();
 
-                Button myButton = buttonObject.GetComponent<Button>();
-                myButton.onClick.AddListener(() => {
-                    SetTurrentBuildModeData(tmdCopy);
-                    TryEnterBuildMode();
-                });
-                
-                Text buttonText = buttonObject.GetComponentInChildren<Text>();
-                buttonText.text = $"${tmdCopy.TurretCost}";
+            Button myButton = buttonObject.GetComponent<Button>();
+            myButton.onClick.AddListener(() => {
+                SetTurrentBuildModeData(tmdCopy);
+                TryEnterBuildMode();
+            });
+            
+            Text buttonText = buttonObject.GetComponentInChildren<Text>();
+            buttonText.text = $"{dictItem.Value}";
 
-                Image buttonImage = buttonObject.GetComponentsInChildren<Image>()
-                    .Where(img => img.gameObject.GetInstanceID() != buttonObject.GetInstanceID())
-                    .First();
-                buttonImage.sprite = Resources.Load<Sprite>(tmdCopy.TurretButtonImageName);
-                
-                buttonObject.transform.SetParent(buttonGrid.transform);
-                buttonObject.transform.localScale = Vector3.one;
-            }
+            Image buttonImage = buttonObject.GetComponentsInChildren<Image>()
+                .Where(img => img.gameObject.GetInstanceID() != buttonObject.GetInstanceID())
+                .First();
+            buttonImage.sprite = Resources.Load<Sprite>(tmdCopy.TurretButtonImageName);
+            
+            buttonObject.transform.SetParent(buttonGrid.transform);
+            buttonObject.transform.localScale = Vector3.one;
+        }
+    }
+
+    void ClearButtonGrid()
+    {
+        foreach(Transform t in buttonGrid.transform)
+        {
+            Destroy(t.gameObject);
         }
     }
 
@@ -71,10 +81,11 @@ public class ConstructionPanelController : MonoBehaviour
         {
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             worldPosition.z = 0;
-            if (PlayerController.Instance.Money >= buildCost)
+            if (numberInInventory > 0)
             {
                 BuildTurretAtPosition(worldPosition);
-                PlayerController.Instance.ChangeMoney(-1 * buildCost);
+                PlayerController.Instance.PlayerInventory.AvailableTurrets[turretName]--;
+                FillButtonGrid();
                 ExitBuildMode();
             }
         }
@@ -98,7 +109,8 @@ public class ConstructionPanelController : MonoBehaviour
 
     void SetTurrentBuildModeData(TurretMetadata turretMetadata)
     {
-        buildCost = turretMetadata.TurretCost;
+        turretName = turretMetadata.TurretName;
+        numberInInventory = PlayerController.Instance.PlayerInventory.AvailableTurrets[turretMetadata.TurretName];
         turretPrefab = Resources.Load<GameObject>(turretMetadata.TurretPrefabName);
         buildModeCursorTexture = turretPrefab.GetComponent<SpriteRenderer>().sprite.texture;
     }
@@ -122,7 +134,7 @@ public class ConstructionPanelController : MonoBehaviour
 
     bool CanEnterBuildMode()
     {
-        return PlayerController.Instance.Money >= buildCost;
+        return numberInInventory > 0;
     }
 
     void ExitBuildMode()

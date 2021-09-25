@@ -1631,6 +1631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1583f6116c4c3747b2786f72411e686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLives: 20
+  startingMoney: 1000
 --- !u!1 &749858951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,6 +2064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers: []
   minionSpawnerPrefab: {fileID: 4034967466719846461, guid: 7b7355982d7efc84f96bb5f8a3f01949, type: 3}
+  waveCounter: 0
 --- !u!4 &1142806430
 Transform:
   m_ObjectHideFlags: 0
@@ -7118,7 +7121,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Not enough money
+  m_Text: No available turrets
 --- !u!222 &1640988980
 CanvasRenderer:
   m_ObjectHideFlags: 0
