@@ -114,10 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e54f090f0cc3874fbe07b26958c89e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyReward: 10
-  maxHealth: 20000
-  initialSpeed: 2
-  speed: 2
+  minionName: SandShinobi
+  moneyReward: 20
+  maxHealth: 100
+  initialSpeed: 3
+  speed: 3
 --- !u!50 &8451551836818473331
 Rigidbody2D:
   serializedVersion: 4

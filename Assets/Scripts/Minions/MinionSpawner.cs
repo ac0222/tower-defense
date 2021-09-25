@@ -5,27 +5,26 @@ using UnityEngine;
 
 public class MinionSpawner : MonoBehaviour
 {
-    int minionsLeftToCreate;
-    public int WaveSize {get; set; } = 100;
-    float spawnTimer;
-    public float spawnFrequency = 3.0f;
-    public GameObject minionPrefab;
+    private int spawnIndex;
+    private float spawnTimer;
+    public List<GameObject> minionPrefabs;
+    public List<SpawnEvent> waveInfo;
 
     // Start is called before the first frame update
     void Start()
     {
-        minionsLeftToCreate = WaveSize;
         spawnTimer = 0;
+        spawnIndex = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         spawnTimer -= Time.deltaTime;
-        if (spawnTimer < 0) {
+        if (spawnTimer <= 0) {
            SpawnMinion();
         }
-        if (minionsLeftToCreate <= 0) 
+        if (spawnIndex >= waveInfo.Count) 
         {
             Destroy(gameObject);
         }
@@ -33,10 +32,13 @@ public class MinionSpawner : MonoBehaviour
 
     void SpawnMinion()
     {
-        GameObject minion = Instantiate(minionPrefab, this.transform.position, Quaternion.identity);
+        SpawnEvent currentSpawnEvent = waveInfo[spawnIndex];
+        GameObject prefabToSpawn = minionPrefabs
+            .FirstOrDefault(mp => mp.GetComponent<MinionController>().minionName == currentSpawnEvent.MinionPrefabName);
+        GameObject minion = Instantiate(prefabToSpawn, this.transform.position, Quaternion.identity);
         MinionController mc = minion.GetComponent<MinionController>();
         mc.Path = MapPoints.Instance.MakePath();
-        spawnTimer = spawnFrequency;
-        minionsLeftToCreate--;
+        spawnTimer = currentSpawnEvent.TimeUntilNextSpawn;
+        spawnIndex++;
     }
 }

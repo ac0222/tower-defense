@@ -19,6 +19,6 @@ public class StatusPanelController : MonoBehaviour
     {
         livesText.text = $"Lives: {PlayerController.Lives}";
         moneyText.text = $"Money: {PlayerController.Money}";
-        waveText.text = $"Wave: {GameController.waveCounter}/{GameController.waves.Count}";
+        waveText.text = $"Wave: {GameController.waveCounter}/{WaveMetadata.Waves.Count}";
     }
 }

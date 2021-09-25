@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MinionController : MonoBehaviour
 {
+    public string minionName;
     public static int minionsDestroyed = 0;
     public float moneyReward = 10;
     public float maxHealth = 10;

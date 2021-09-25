@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864516ad450981848aa329915c5671fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnFrequency: 3
-  minionPrefab: {fileID: 6615603748286183667, guid: 019dd8f2f9e20d049a6569719f3f46a0, type: 3}
+  minionPrefabs:
+  - {fileID: 6596317122643394664, guid: afe47ef8bd2428b42acae836098e5a21, type: 3}
+  - {fileID: 6615603748286183667, guid: 019dd8f2f9e20d049a6569719f3f46a0, type: 3}
