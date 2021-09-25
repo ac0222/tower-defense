@@ -5,15 +5,21 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 
 
+// Singleton
 public class GameController : MonoBehaviour
 {
+    private static GameController instance;
+    public static GameController Instance {
+        get 
+        {
+            return instance;
+        } 
+    }
+
     public List<GameObject> towers;
     public GameObject minionSpawnerPrefab;
-    public static int waveCounter = 0;
-    //public static List<int> waves = new List<int> {1, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    public int waveCounter = 0;
 
-    static GameController instance;
-    public static GameController Instance {get {return instance;}}
     // Start is called before the first frame update
     void Start()
     {
