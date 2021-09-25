@@ -16,6 +16,7 @@ public class MinionController : MonoBehaviour
     public List<Vector3> Path {get; set;}
 
     public Vector3? FearPoint {get; set;} = null;
+    public bool IsTargetable {get; set;} = true;
 
     // Start is called before the first frame update
     void Start()

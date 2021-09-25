@@ -53,6 +53,8 @@ public class ProjectileTurret : MonoBehaviour
             rangeCollider.radius, 
             LayerMask.GetMask("Minion"))
             .Select(cl => cl.gameObject)
+            // some minions can become untargetable by going 'invis'
+            .Where(g => g.GetComponent<MinionController>().IsTargetable)
             .ToList();
         
         if (minionsInRange.Count == 0)
