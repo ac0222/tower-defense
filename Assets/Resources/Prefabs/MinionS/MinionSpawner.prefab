@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4034967466719846459}
   - component: {fileID: 2363967902412757002}
+  - component: {fileID: -1263182029316759908}
   m_Layer: 0
   m_Name: MinionSpawner
   m_TagString: Untagged
@@ -47,3 +48,15 @@ MonoBehaviour:
   - {fileID: 6596317122643394664, guid: afe47ef8bd2428b42acae836098e5a21, type: 3}
   - {fileID: 6615603748286183667, guid: 019dd8f2f9e20d049a6569719f3f46a0, type: 3}
   - {fileID: 4875887474644359216, guid: 863dfc37f1b533a46b27fcac9651686d, type: 3}
+--- !u!114 &-1263182029316759908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4034967466719846461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44321bbf2fe7154469faf0a44ad733f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -10,17 +10,20 @@ public static class WaveMetadata
         new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 0.2f},
         new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 2f},
     };
+    // public static List<SpawnEvent> Wave1 = new List<SpawnEvent> {
+    //     new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
+    //     new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
+    //     new SpawnEvent { MinionPrefabName = "SandShinobi", TimeUntilNextSpawn = 0.2f},
+    //     new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
+    //     new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 2f},
+    //     new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
+    //     new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
+    //     new SpawnEvent { MinionPrefabName = "SandShinobi", TimeUntilNextSpawn = 0.2f},
+    //     new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 0.2f},
+    //     new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 2f},
+    // };
     public static List<SpawnEvent> Wave1 = new List<SpawnEvent> {
         new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
-        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
-        new SpawnEvent { MinionPrefabName = "SandShinobi", TimeUntilNextSpawn = 0.2f},
-        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
-        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 2f},
-        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
-        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
-        new SpawnEvent { MinionPrefabName = "SandShinobi", TimeUntilNextSpawn = 0.2f},
-        new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 0.2f},
-        new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 2f},
     };
     public static List<SpawnEvent> Wave2 = Wave1.Concat(Wave1).ToList();
     public static List<SpawnEvent> Wave3 = Wave2.Concat(Wave1).ToList();
