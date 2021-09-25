@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SenbonzakuraPetal : MonoBehaviour
+public class SenbonzakuraPetal : AbstractProjectile
 {
+    public override bool IsDeflectable {get; set;} = false;
     public float Alpha {get; set;} = 0;
     public float SemiMajorAxis {get; set;}
     public float SemiMinorAxis {get; set;}

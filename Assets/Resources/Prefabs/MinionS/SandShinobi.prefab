@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyReward: 10
-  maxHealth: 50
+  maxHealth: 20000
   initialSpeed: 2
   speed: 2
 --- !u!50 &8451551836818473331

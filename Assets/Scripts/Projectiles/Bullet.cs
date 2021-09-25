@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : AbstractProjectile
 {
+    public override bool IsDeflectable {get; set;} = true;
     public float bulletDamage = 2.0f;
     private List<GameObject> effects;
 

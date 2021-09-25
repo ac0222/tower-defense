@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kunai : MonoBehaviour
+public class Kunai : AbstractProjectile
 {
+    public override bool IsDeflectable {get; set;} = true;
     public float damage = 2.0f;
     private List<GameObject> effects;
 

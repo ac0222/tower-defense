@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Fireball : MonoBehaviour
+public class Fireball : AbstractProjectile
 {
+    public override bool IsDeflectable {get; set;} = true;
     public float damage = 2.0f;
     private List<GameObject> effects;
 

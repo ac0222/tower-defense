@@ -25,16 +25,17 @@ public class WindBarrier : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Kunai kunai = collider.gameObject.GetComponent<Kunai>();
-        if (kunai != null) 
+        AbstractProjectile projectile = collider.gameObject.GetComponent<AbstractProjectile>();
+        if (projectile != null && projectile.IsDeflectable) 
         {
-            Repel(kunai.gameObject);
+            Repel(projectile.gameObject);
         }
     }
 
     void Repel(GameObject objectToRepel)
     {
         Vector2 awayFromCenter = (objectToRepel.transform.position - this.transform.position).normalized;
+        Rigidbody2D rigidBody = objectToRepel.GetComponent<Rigidbody2D>();
         objectToRepel.GetComponent<Rigidbody2D>().AddForce(awayFromCenter * windForce);
         objectToRepel.GetComponent<Rigidbody2D>().AddTorque(windRotation);
     }
