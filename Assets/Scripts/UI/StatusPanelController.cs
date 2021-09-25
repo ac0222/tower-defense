@@ -17,8 +17,8 @@ public class StatusPanelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        livesText.text = $"Lives: {PlayerController.Lives}";
-        moneyText.text = $"Money: {PlayerController.Money}";
+        livesText.text = $"Lives: {PlayerController.Instance.Lives}";
+        moneyText.text = $"Money: {PlayerController.Instance.Money}";
         waveText.text = $"Wave: {GameController.Instance.waveCounter}/{WaveMetadata.Waves.Count}";
     }
 }

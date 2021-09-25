@@ -2,14 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Singleton
 public class PlayerController : MonoBehaviour
 {
-    public static int maxLives = 20;
-    public static int Lives {get; private set;}
-    public static float startingMoney = 1000;
-    public static float Money {get; private set;}
-    static PlayerController instance = null;
-    public static PlayerController Instance {get {return instance;}}
+    private static PlayerController instance = null;
+    public static PlayerController Instance {
+        get 
+        {
+            return instance;
+        }
+    }
+
+    public int maxLives = 20;
+    public int Lives {get; private set;}
+    public float startingMoney = 1000;
+    public float Money {get; private set;}
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,24 +26,18 @@ public class PlayerController : MonoBehaviour
         instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Reset()
     {
         Money = startingMoney;
         Lives = maxLives;
     }
 
-    public static void ChangeMoney(float amount) 
+    public void ChangeMoney(float amount) 
     {
         Money += amount;
     }
 
-    public static void ChangeLives(int amount) 
+    public void ChangeLives(int amount) 
     {
         Lives += amount;
     }

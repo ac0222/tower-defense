@@ -124,7 +124,7 @@ public class MinionController : MonoBehaviour
     {
         if (destroyedByTurret)
         {
-            PlayerController.ChangeMoney(moneyReward);
+            PlayerController.Instance.ChangeMoney(moneyReward);
         }
         minionsDestroyed += 1;
     }

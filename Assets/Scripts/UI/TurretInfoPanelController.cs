@@ -65,7 +65,7 @@ public class TurretInfoPanelController : MonoBehaviour
 
     void UpgradeTurret()
     {
-        if (PlayerController.Money >= selectedMetadata.UpgradeCost)
+        if (PlayerController.Instance.Money >= selectedMetadata.UpgradeCost)
         {
             GameObject upgradedPrefab = Resources.Load<GameObject>(selectedMetadata.UpgradePrefabName);
             GameObject newTurret = Instantiate(upgradedPrefab, selectedTurret.transform.position, Quaternion.identity);
@@ -74,7 +74,7 @@ public class TurretInfoPanelController : MonoBehaviour
                 .Where(tmd => tmd.TurretName == newTurretName)
                 .FirstOrDefault();
             Destroy(selectedTurret);
-            PlayerController.ChangeMoney(-1 * selectedMetadata.UpgradeCost);
+            PlayerController.Instance.ChangeMoney(-1 * selectedMetadata.UpgradeCost);
             FillInfo(newTurret, newMetadata);
         }
         else

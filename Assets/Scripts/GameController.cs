@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
         {
             return Constants.VICTORY;
         }
-        if (PlayerController.Lives <= 0)
+        if (PlayerController.Instance.Lives <= 0)
         {
             return Constants.GAME_OVER;
         }

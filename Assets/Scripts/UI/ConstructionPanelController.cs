@@ -71,10 +71,10 @@ public class ConstructionPanelController : MonoBehaviour
         {
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             worldPosition.z = 0;
-            if (PlayerController.Money >= buildCost)
+            if (PlayerController.Instance.Money >= buildCost)
             {
                 BuildTurretAtPosition(worldPosition);
-                PlayerController.ChangeMoney(-1 * buildCost);
+                PlayerController.Instance.ChangeMoney(-1 * buildCost);
                 ExitBuildMode();
             }
         }
@@ -122,7 +122,7 @@ public class ConstructionPanelController : MonoBehaviour
 
     bool CanEnterBuildMode()
     {
-        return PlayerController.Money >= buildCost;
+        return PlayerController.Instance.Money >= buildCost;
     }
 
     void ExitBuildMode()
