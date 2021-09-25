@@ -22,10 +22,10 @@ public class TurretInfoPanelController : MonoBehaviour
     public static TurretInfoPanelController Instance {get; private set;}
     void Awake()
     {
+        Instance = this;
         gameObject.SetActive(false);
         closeButton.onClick.AddListener(() => gameObject.SetActive(false));
         upgradeButton.onClick.AddListener(() => UpgradeTurret());
-        Instance = this;
     }
 
     public void FillInfo(GameObject turret, TurretMetadata turretMetadata)

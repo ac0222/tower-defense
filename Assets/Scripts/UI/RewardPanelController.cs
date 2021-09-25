@@ -15,9 +15,9 @@ public class RewardPanelController : MonoBehaviour
     public static RewardPanelController Instance {get; private set;}
     void Awake()
     {
+        Instance = this;
         gameObject.SetActive(false);
         closeButton.onClick.AddListener(() => gameObject.SetActive(false));
-        Instance = this;
     }
 
     public void GenerateAndShowRewards()

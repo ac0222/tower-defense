@@ -16,10 +16,16 @@ public class ProjectileTurret : MonoBehaviour
     protected CircleCollider2D rangeCollider;
     protected Queue<GameObject> targetsInRange;
     protected float timeUntilNextShot;
+    protected float timeUntilBuilt;
+    public bool IsBuilt {get; set;}
+    public string turretName = "Shinobi Lookout";
 
     // Start is called before the first frame update
     void Start()
     {
+        timeUntilBuilt = TurretMetadata.turretMetadataList
+            .FirstOrDefault(tmd => tmd.TurretName == turretName)
+            .BuildTime;
         timeUntilNextShot = 0;
         rangeCollider = GetComponent<CircleCollider2D>();
         targetsInRange = new Queue<GameObject>();
@@ -33,7 +39,15 @@ public class ProjectileTurret : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (timeUntilNextShot < 0)
+        if (!IsBuilt)
+        {
+            timeUntilBuilt -= Time.deltaTime;
+        }
+        if (timeUntilBuilt <= 0)
+        {
+            IsBuilt = true;
+        }
+        if (IsBuilt && timeUntilNextShot < 0)
         {
             GameObject target = AcquireTarget();
             if (target == null) {

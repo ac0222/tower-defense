@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class TurretMetadata
 {
     public string TurretName {get; set;}
-    public float TurretCost {get; set;}
+    public float BuildTime {get; set;}
     public float UpgradeCost {get; set;}
     public string TurretPrefabName {get; set;}
     public string UpgradePrefabName {get; set;}
@@ -18,7 +18,7 @@ public class TurretMetadata
     {
          TurretMetadata tmdCopy = new TurretMetadata {
             TurretName = TurretName,
-            TurretCost = TurretCost,
+            BuildTime = BuildTime,
             UpgradeCost = UpgradeCost,
             TurretDescription = TurretDescription,
             TurretPrefabName = TurretPrefabName,
@@ -34,7 +34,7 @@ public class TurretMetadata
     public static List<TurretMetadata> turretMetadataList = new List<TurretMetadata> {
         new TurretMetadata {
             TurretName = "Shinobi Lookout",
-            TurretCost = 50,
+            BuildTime = 50,
             UpgradeCost = 88,
             TurretPrefabName = "Prefabs/Turrets/ShinobiLookout",
             UpgradePrefabName = "Prefabs/Turrets/UpgradedShinobiLookout",
@@ -46,7 +46,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Upgraded Shinobi Lookout",
-            TurretCost = 200,
+            BuildTime = 50,
             TurretPrefabName = "Prefabs/Turrets/UpgradedShinobiLookout",
             TurretDescription = "Chunin that chucks kunais and fireballs",
             TurretCursorTextureName = "",
@@ -56,7 +56,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Eva01",
-            TurretCost = 150,
+            BuildTime = 150,
             UpgradeCost = 100,
             TurretPrefabName = "Prefabs/Turrets/EvaOne",
             UpgradePrefabName = "Prefabs/Turrets/UpgradedEvaOne",
@@ -68,7 +68,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Berserk Eva01",
-            TurretCost = 200,
+            BuildTime = 150,
             TurretPrefabName = "Prefabs/Turrets/UpgradedEvaOne",
             TurretDescription = "Angry robot",
             TurretCursorTextureName = "",
@@ -78,7 +78,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Byakuya",
-            TurretCost = 150,
+            BuildTime = 150,
             UpgradeCost = 150,
             TurretPrefabName = "Prefabs/Turrets/Byakuya",
             UpgradePrefabName = "Prefabs/Turrets/UpgradedByakuya",
@@ -90,7 +90,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Bankai Byakuya",
-            TurretCost = 250,
+            BuildTime = 150,
             TurretPrefabName = "Prefabs/Turrets/UpgradedByakuya",
             TurretDescription = "ban-KAI!",
             TurretCursorTextureName = "",
