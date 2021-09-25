@@ -6,6 +6,7 @@ using System.Linq;
 
 public class ConstructionPanelController : MonoBehaviour
 {
+    public static ConstructionPanelController Instance {get; private set;}
     // error display
     float errorMessageTimer = 0;
     float timeToShowErrorMessage = 3.0f;
@@ -25,6 +26,7 @@ public class ConstructionPanelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         buttonGrid = gameObject.GetComponentInChildren<GridLayoutGroup>().gameObject;
         FillButtonGrid();
     }
@@ -36,7 +38,7 @@ public class ConstructionPanelController : MonoBehaviour
         UpdateErrorMessage();
     }
 
-    void FillButtonGrid()
+    public void FillButtonGrid()
     {
         ClearButtonGrid();
         Dictionary<string, int> availableTurrets = PlayerController.Instance.PlayerInventory.AvailableTurrets;

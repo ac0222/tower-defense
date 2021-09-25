@@ -1108,7 +1108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 448389940603169698, guid: d90eeaf1b32b16f45a9e2641289d95f3, type: 3}
       propertyPath: m_Name
-      value: ContructTurretButton
+      value: Placeholder1
       objectReference: {fileID: 0}
     - target: {fileID: 448389940603169699, guid: d90eeaf1b32b16f45a9e2641289d95f3, type: 3}
       propertyPath: m_Pivot.x
@@ -2261,7 +2261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 448389940603169698, guid: d90eeaf1b32b16f45a9e2641289d95f3, type: 3}
       propertyPath: m_Name
-      value: ContructTurretButton (2)
+      value: Placeholder3
       objectReference: {fileID: 0}
     - target: {fileID: 448389940603169699, guid: d90eeaf1b32b16f45a9e2641289d95f3, type: 3}
       propertyPath: m_Pivot.x
@@ -2432,7 +2432,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa67dac6ec12a747b945c5e5deb78d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rewardButtonPrefab: {fileID: 448389940603169698, guid: d90eeaf1b32b16f45a9e2641289d95f3, type: 3}
   closeButton: {fileID: 689374962}
+  buttonGrid: {fileID: 194638054}
+  numRewards: 3
 --- !u!114 &952425477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2758,7 +2761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 448389940603169698, guid: d90eeaf1b32b16f45a9e2641289d95f3, type: 3}
       propertyPath: m_Name
-      value: ContructTurretButton (1)
+      value: Placeholder2
       objectReference: {fileID: 0}
     - target: {fileID: 448389940603169699, guid: d90eeaf1b32b16f45a9e2641289d95f3, type: 3}
       propertyPath: m_Pivot.x

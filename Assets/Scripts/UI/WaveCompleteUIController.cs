@@ -10,5 +10,6 @@ public class WaveCompleteUIController : MonoBehaviour
     void OnDestroy()
     {
         RewardPanelController.Instance.gameObject.SetActive(true);
+        RewardPanelController.Instance.GenerateAndShowRewards();
     }
 }
