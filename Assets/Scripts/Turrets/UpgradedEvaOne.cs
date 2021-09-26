@@ -9,40 +9,17 @@ public class UpgradedEvaOne : EvaOne
     public float roarCooldown = 10;
     private float timeUntilNextRoar;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         timeUntilNextRoar = 0;
-        timeUntilNextShot = 0;
-        rangeCollider = GetComponent<CircleCollider2D>();
-        targetsInRange = new Queue<GameObject>();
-        roundsLeftInClip = clipSize;
     }
 
-    void Update()
+    protected override void FixedUpdate()
     {
-        timeUntilNextShot -= Time.deltaTime;
+        base.FixedUpdate();
         timeUntilNextRoar -= Time.deltaTime;
-    }
-
-    void FixedUpdate()
-    {
-        if (timeUntilNextShot < 0 && roundsLeftInClip > 0)
-        {
-            GameObject target = AcquireTarget();
-            if (target != null) {
-                // shoot
-                ShootAtTarget(target, projectilePrefab, throwingForce); 
-                timeUntilNextShot = 1.0f / roundsPerSecond;
-                roundsLeftInClip--;            
-            }
-        }
-
-        if (roundsLeftInClip <= 0)
-        {
-            Reload();
-        }
-
-        if (timeUntilNextRoar < 0)
+        if (IsBuilt && timeUntilNextRoar < 0)
         {
             GameObject target = AcquireTarget();
             if (target != null)

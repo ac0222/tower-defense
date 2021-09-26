@@ -11,6 +11,9 @@ public class ProjectileTurret : BasicTurret
     // prefab settings
     public float reloadTime = 0.5f;
     public float throwingForce = 1000;
+    public int clipSize = 1;
+    public float roundsPerSecond = 1;
+    protected int roundsLeftInClip;
 
     // instance variables
     protected CircleCollider2D rangeCollider;
@@ -22,6 +25,7 @@ public class ProjectileTurret : BasicTurret
     {
         base.Start();
         timeUntilNextShot = 0;
+        roundsLeftInClip = clipSize;
         rangeCollider = GetComponent<CircleCollider2D>();
         targetsInRange = new Queue<GameObject>();
     }
@@ -30,7 +34,7 @@ public class ProjectileTurret : BasicTurret
     {
         base.FixedUpdate();
         timeUntilNextShot -= Time.deltaTime;
-        if (IsBuilt && timeUntilNextShot < 0)
+        if (IsBuilt && timeUntilNextShot < 0 && roundsLeftInClip > 0)
         {
             GameObject target = AcquireTarget();
             if (target == null) {
@@ -38,8 +42,13 @@ public class ProjectileTurret : BasicTurret
             }
             // shoot
             ShootAtTarget(target, projectilePrefab, throwingForce);
-            // reload
-            timeUntilNextShot = reloadTime; 
+            // prepare next shot
+            timeUntilNextShot = 1.0f / roundsPerSecond;
+            roundsLeftInClip--;
+        }
+        if (roundsLeftInClip <= 0)
+        {
+            Reload();
         }
     }
 
@@ -77,5 +86,11 @@ public class ProjectileTurret : BasicTurret
         GameObject projectile = Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
         projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         projectile.GetComponent<Rigidbody2D>().AddForce(directionOfTarget * throwingForce);
+    }
+
+    protected void Reload()
+    {
+        timeUntilNextShot = reloadTime;
+        roundsLeftInClip = clipSize;
     }
 }
