@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public int maxLives = 20;
+    public int maxLives = 1000;
     public int Lives {get; private set;}
-    public float startingMoney = 1000;
+    public float startingMoney = 200;
     public float Money {get; private set;}
 
     public Inventory PlayerInventory;
@@ -34,9 +34,6 @@ public class PlayerController : MonoBehaviour
     {
         PlayerInventory = new Inventory();
         PlayerInventory.AvailableTurrets.Add("Shinobi Lookout", 5);
-        PlayerInventory.AvailableTurrets.Add("Upgraded Shinobi Lookout", 5);
-        PlayerInventory.AvailableTurrets.Add("Byakuya", 5);
-
     }
 
     public void Reset()
