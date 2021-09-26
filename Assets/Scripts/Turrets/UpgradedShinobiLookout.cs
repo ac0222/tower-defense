@@ -13,28 +13,16 @@ public class UpgradedShinobiLookout : ProjectileTurret
 
     private float timeUntilNextFireball = 0;
 
-
-    void Update()
+    protected override void Start()
     {
-        timeUntilNextShot -= Time.deltaTime;
-        timeUntilNextFireball -= Time.deltaTime;
+        base.Start();
     }
     
-    void FixedUpdate()
+    protected override void FixedUpdate()
     {
-        if (timeUntilNextShot < 0)
-        {
-            GameObject target = AcquireTarget();
-            if (target == null) {
-                return;
-            }
-            // shoot
-            ShootAtTarget(target, projectilePrefab, throwingForce);
-            // reload
-            timeUntilNextShot = reloadTime; 
-        }
-
-        if (timeUntilNextFireball < 0)
+        base.FixedUpdate();
+        timeUntilNextFireball -= Time.deltaTime;
+        if (IsBuilt && timeUntilNextFireball < 0)
         {
             GameObject target = AcquireTarget();
             if (target == null) {

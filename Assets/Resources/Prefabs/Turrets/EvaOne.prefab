@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c4974524684a64485a24bd851929b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TurretName: Eva01
   projectilePrefab: {fileID: 602894149804576257, guid: 0e6b4591f984eb142a9e42d6b73618cc, type: 3}
   reloadTime: 1
   throwingForce: 1000

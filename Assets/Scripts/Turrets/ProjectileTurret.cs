@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class ProjectileTurret : MonoBehaviour
+public class ProjectileTurret : BasicTurret
 {
     // projectile prefabs
     public GameObject projectilePrefab;
@@ -16,37 +16,20 @@ public class ProjectileTurret : MonoBehaviour
     protected CircleCollider2D rangeCollider;
     protected Queue<GameObject> targetsInRange;
     protected float timeUntilNextShot;
-    protected float timeUntilBuilt;
-    public bool IsBuilt {get; set;}
-    public string turretName = "Shinobi Lookout";
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        timeUntilBuilt = TurretMetadata.turretMetadataList
-            .FirstOrDefault(tmd => tmd.TurretName == turretName)
-            .BuildTime;
+        base.Start();
         timeUntilNextShot = 0;
         rangeCollider = GetComponent<CircleCollider2D>();
         targetsInRange = new Queue<GameObject>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         timeUntilNextShot -= Time.deltaTime;
-    }
-
-    void FixedUpdate()
-    {
-        if (!IsBuilt)
-        {
-            timeUntilBuilt -= Time.deltaTime;
-        }
-        if (timeUntilBuilt <= 0)
-        {
-            IsBuilt = true;
-        }
         if (IsBuilt && timeUntilNextShot < 0)
         {
             GameObject target = AcquireTarget();

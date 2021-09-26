@@ -9,16 +9,15 @@ public class EvaOne : ProjectileTurret
     public float roundsPerSecond = 5;
     protected int roundsLeftInClip;
     
-    void Start()
+    protected override void Start()
     {
-        timeUntilNextShot = 0;
-        rangeCollider = GetComponent<CircleCollider2D>();
-        targetsInRange = new Queue<GameObject>();
+        base.Start();
         roundsLeftInClip = clipSize;
     }
 
-    void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        
         if (timeUntilNextShot < 0 && roundsLeftInClip > 0)
         {
             GameObject target = AcquireTarget();

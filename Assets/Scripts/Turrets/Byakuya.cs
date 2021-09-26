@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Byakuya : MonoBehaviour
+public class Byakuya : BasicTurret
 {
     public float petalSpeed = 180;
     public int numberOfPetals = 5;
@@ -12,9 +12,25 @@ public class Byakuya : MonoBehaviour
 
     // instance variables
     protected CircleCollider2D orbitRadius;
+    private bool petalsCreated;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
+    {
+        base.Start();
+        petalsCreated = false;
+    }
+
+    private void Update()
+    {
+        if (IsBuilt && !petalsCreated)
+        {
+            InitPetals();
+            petalsCreated = true;
+        }
+    }
+
+    private void InitPetals()
     {
         orbitRadius = GetComponent<CircleCollider2D>();
         for(int i = 0; i < numberOfPetals; i++)
@@ -30,14 +46,5 @@ public class Byakuya : MonoBehaviour
             petalScript.Alpha = i * (720/numberOfPetals);
             petalScript.damage = 1;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    void FixedUpdate()
-    {
     }
 }

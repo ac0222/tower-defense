@@ -34,7 +34,7 @@ public class TurretMetadata
     public static List<TurretMetadata> turretMetadataList = new List<TurretMetadata> {
         new TurretMetadata {
             TurretName = "Shinobi Lookout",
-            BuildTime = 50,
+            BuildTime = 10,
             UpgradeCost = 88,
             TurretPrefabName = "Prefabs/Turrets/ShinobiLookout",
             UpgradePrefabName = "Prefabs/Turrets/UpgradedShinobiLookout",
@@ -46,7 +46,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Upgraded Shinobi Lookout",
-            BuildTime = 50,
+            BuildTime = 10,
             TurretPrefabName = "Prefabs/Turrets/UpgradedShinobiLookout",
             TurretDescription = "Chunin that chucks kunais and fireballs",
             TurretCursorTextureName = "",
@@ -56,7 +56,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Eva01",
-            BuildTime = 150,
+            BuildTime = 5,
             UpgradeCost = 100,
             TurretPrefabName = "Prefabs/Turrets/EvaOne",
             UpgradePrefabName = "Prefabs/Turrets/UpgradedEvaOne",
@@ -68,7 +68,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Berserk Eva01",
-            BuildTime = 150,
+            BuildTime = 5,
             TurretPrefabName = "Prefabs/Turrets/UpgradedEvaOne",
             TurretDescription = "Angry robot",
             TurretCursorTextureName = "",
@@ -78,7 +78,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Byakuya",
-            BuildTime = 150,
+            BuildTime = 15,
             UpgradeCost = 150,
             TurretPrefabName = "Prefabs/Turrets/Byakuya",
             UpgradePrefabName = "Prefabs/Turrets/UpgradedByakuya",
@@ -90,7 +90,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Bankai Byakuya",
-            BuildTime = 150,
+            BuildTime = 8,
             TurretPrefabName = "Prefabs/Turrets/UpgradedByakuya",
             TurretDescription = "ban-KAI!",
             TurretCursorTextureName = "",
