@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class StatusPanelController : MonoBehaviour
+public class StatusPanelController : MonoBehaviour, IPointerClickHandler
 {
     public Text livesText;
     public Text moneyText; 
     public Text waveText;
     public Text timerText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -23,4 +19,14 @@ public class StatusPanelController : MonoBehaviour
         waveText.text = $"Wave: {GameController.Instance.waveCounter}/{WaveMetadata.Waves.Count}";
         timerText.text = $"Time: {GameController.Instance.timeElapsed:F2}";
     }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        string clickedName = eventData.pointerCurrentRaycast.gameObject.name;
+        if (clickedName == "CurrentWave")
+        {
+            WaveInfoPanel.Instance.gameObject.SetActive(true);
+            WaveInfoPanel.Instance.UpdateWaveInfo();
+        }
+    } 
 }

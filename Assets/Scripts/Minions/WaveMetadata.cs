@@ -35,6 +35,16 @@ public static class WaveMetadata
         },
         Timing = 10
     };
+    public static Wave Wave3 = Wave1;
+    public static Wave Wave4 = Wave1;
+    public static Wave Wave5 = Wave1;
+    public static Wave Wave6 = Wave1;
+    public static Wave Wave7 = Wave1;
+    public static Wave Wave8 = Wave1;
+    public static Wave Wave9 = Wave1;
+    public static Wave Wave10 = Wave1;
+
+
     // public static List<SpawnEvent> Wave2 = Wave1.Concat(Wave1).ToList();
     // public static List<SpawnEvent> Wave3 = Wave2.Concat(Wave1).ToList();
     // public static List<SpawnEvent> Wave4 = Wave3.Concat(Wave1).ToList();
@@ -55,14 +65,14 @@ public static class WaveMetadata
     public static List<Wave> Waves = new List<Wave> {
         Wave1,
         Wave2,
-        // Wave3,
-        // Wave4,
-        // Wave5,
-        // Wave6,
-        // Wave7,
-        // Wave8,
-        // Wave9,
-        // Wave10
+        Wave3,
+        Wave4,
+        Wave5,
+        Wave6,
+        Wave7,
+        Wave8,
+        Wave9,
+        Wave10
     };
 
     public static int TotalMinions = Waves.Select(wv => wv.SpawnEvents.Count).Sum();
