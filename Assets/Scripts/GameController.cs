@@ -19,12 +19,24 @@ public class GameController : MonoBehaviour
     public List<GameObject> towers;
     public GameObject minionSpawnerPrefab;
     public int waveCounter = 0;
+    public float timeElapsed;
 
     // Start is called before the first frame update
     void Start()
     {
+        timeElapsed = 0;
         instance = this;
         towers = new List<GameObject>();
+    }
+
+    void Update()
+    {
+        timeElapsed += Time.deltaTime;
+        if (waveCounter < WaveMetadata.Waves.Count 
+            && timeElapsed >= WaveMetadata.Waves[waveCounter].Timing)
+        {
+            CreateNextWave();
+        }
     }
 
     public string GetGameState()
@@ -45,7 +57,7 @@ public class GameController : MonoBehaviour
         if (waveCounter < WaveMetadata.Waves.Count)
         {
             GameObject msp = Instantiate(minionSpawnerPrefab, MapPoints.Instance.spawnPoint.transform.position, Quaternion.identity);  
-            msp.GetComponent<MinionSpawner>().waveInfo = WaveMetadata.Waves[waveCounter];
+            msp.GetComponent<MinionSpawner>().waveInfo = WaveMetadata.Waves[waveCounter].SpawnEvents;
             waveCounter++;
         }
     }

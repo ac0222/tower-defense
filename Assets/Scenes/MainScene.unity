@@ -363,6 +363,85 @@ Transform:
   m_Father: {fileID: 311809850}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &91634181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 91634182}
+  - component: {fileID: 91634184}
+  - component: {fileID: 91634183}
+  m_Layer: 5
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &91634182
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91634181}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1475723523}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.73}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.099998474, y: -45.6}
+  m_SizeDelta: {x: -21.1922, y: -0.8212}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &91634183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91634181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 10
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Time:'
+--- !u!222 &91634184
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91634181}
+  m_CullTransparentMesh: 1
 --- !u!1 &104068082
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,8 +476,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.2546997}
-  m_AnchoredPosition: {x: 1.0627975, y: 6.5557976}
-  m_SizeDelta: {x: -19.6406, y: -0.5462}
+  m_AnchoredPosition: {x: -0.5999985, y: 16.9}
+  m_SizeDelta: {x: -23.7653, y: -4.6709}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &104068084
 MonoBehaviour:
@@ -422,10 +501,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -2655,6 +2734,7 @@ MonoBehaviour:
   towers: []
   minionSpawnerPrefab: {fileID: 4034967466719846461, guid: 7b7355982d7efc84f96bb5f8a3f01949, type: 3}
   waveCounter: 0
+  timeElapsed: 0
 --- !u!4 &1142806430
 Transform:
   m_ObjectHideFlags: 0
@@ -2958,8 +3038,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.73}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.2873, y: -3.4102}
-  m_SizeDelta: {x: -21.1922, y: -0.8212}
+  m_AnchoredPosition: {x: -1.8, y: -3.7}
+  m_SizeDelta: {x: -27.15, y: -5.8623}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1277662678
 MonoBehaviour:
@@ -2983,10 +3063,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -7433,6 +7513,7 @@ RectTransform:
   - {fileID: 1277662677}
   - {fileID: 1664302089}
   - {fileID: 104068083}
+  - {fileID: 91634182}
   m_Father: {fileID: 272847267}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7456,6 +7537,7 @@ MonoBehaviour:
   livesText: {fileID: 1277662678}
   moneyText: {fileID: 1664302090}
   waveText: {fileID: 104068084}
+  timerText: {fileID: 91634183}
 --- !u!114 &1475723525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7927,8 +8009,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.37730032}
   m_AnchorMax: {x: 1, y: 0.592}
-  m_AnchoredPosition: {x: -0.123176575, y: 1.8000002}
-  m_SizeDelta: {x: -24.916, y: 2.271799}
+  m_AnchoredPosition: {x: -4, y: 7.1}
+  m_SizeDelta: {x: -30.8738, y: -1.8528}
   m_Pivot: {x: 0.5, y: 0.4999998}
 --- !u!114 &1664302090
 MonoBehaviour:
@@ -7952,10 +8034,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
