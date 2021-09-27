@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
         Lives = maxLives;
         instance = this;
         InitInventory();
-        Debug.Log(PlayerInventory.AvailableTurrets);
     }
 
     public void InitInventory()

@@ -28,4 +28,9 @@ public class BasicTurret : MonoBehaviour
             IsBuilt = true;
         }
     }
+
+    void OnDestroy()
+    {
+        GameController.Instance.turrets.Remove(gameObject);
+    }
 }
