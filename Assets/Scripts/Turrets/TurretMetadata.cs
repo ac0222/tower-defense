@@ -78,7 +78,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Byakuya",
-            BuildTime = 15,
+            BuildTime = 1,
             UpgradeCost = 150,
             TurretPrefabName = "Prefabs/Turrets/Byakuya",
             UpgradePrefabName = "Prefabs/Turrets/UpgradedByakuya",
@@ -90,7 +90,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Bankai Byakuya",
-            BuildTime = 15,
+            BuildTime = 1,
             TurretPrefabName = "Prefabs/Turrets/UpgradedByakuya",
             TurretDescription = "ban-KAI!",
             TurretCursorTextureName = "",

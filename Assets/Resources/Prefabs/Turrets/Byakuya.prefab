@@ -229,8 +229,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TurretName: Byakuya
+  petalSpawnTime: 5
+  maxPetals: 25
   petalSpeed: 120
-  numberOfPetals: 6
+  petalDamage: 1
   projectilePrefab: {fileID: 7231594728778789978, guid: beab9ad6d904c5147af15e402d9d67bd, type: 3}
 --- !u!70 &-4822362330082709115
 CapsuleCollider2D:
