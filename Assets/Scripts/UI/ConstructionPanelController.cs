@@ -136,7 +136,7 @@ public class ConstructionPanelController : MonoBehaviour
 
     bool CanEnterBuildMode()
     {
-        return numberInInventory > 0;
+        return numberInInventory > 0 && (PlayerController.Instance.NumberOfAvailableBuilders() > 0);
     }
 
     void ExitBuildMode()
@@ -148,6 +148,6 @@ public class ConstructionPanelController : MonoBehaviour
     void BuildTurretAtPosition(Vector3 position)
     {
         GameObject newTurret = Instantiate(turretPrefab, position, Quaternion.identity);
-        GameController.Instance.towers.Add(newTurret);
+        GameController.Instance.turrets.Add(newTurret);
     }
 }

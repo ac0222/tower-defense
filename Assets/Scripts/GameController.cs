@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
         } 
     }
 
-    public List<GameObject> towers;
+    public List<GameObject> turrets;
     public GameObject minionSpawnerPrefab;
     public int waveCounter = 0;
     public float timeElapsed;
@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     {
         timeElapsed = 0;
         instance = this;
-        towers = new List<GameObject>();
+        turrets = new List<GameObject>();
     }
 
     void Update()
@@ -70,6 +70,15 @@ public class GameController : MonoBehaviour
         MinionController.minionsDestroyed = 0;
         // reset player stats
         PlayerController.Instance.Reset();
+        // reset turrets
+        turrets = new List<GameObject>();
         SceneManager.LoadScene("MainScene");
+    }
+
+    public List<GameObject> TurretsUnderConstruction()
+    {
+        return turrets
+            .Where(t => !t.GetComponent<BasicTurret>().IsBuilt)
+            .ToList();
     }
 }

@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public int builders = 3;
     public int maxLives = 1000;
     public int Lives {get; private set;}
     public float startingMoney = 200;
@@ -50,5 +51,10 @@ public class PlayerController : MonoBehaviour
     public void ChangeLives(int amount) 
     {
         Lives += amount;
+    }
+
+    public int NumberOfAvailableBuilders()
+    {
+        return builders - GameController.Instance.TurretsUnderConstruction().Count;
     }
 }

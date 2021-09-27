@@ -10,6 +10,7 @@ public class StatusPanelController : MonoBehaviour, IPointerClickHandler
     public Text moneyText; 
     public Text waveText;
     public Text timerText;
+    public Text buildersCounter;
 
     // Update is called once per frame
     void Update()
@@ -17,6 +18,7 @@ public class StatusPanelController : MonoBehaviour, IPointerClickHandler
         livesText.text = $"Lives: {PlayerController.Instance.Lives}";
         moneyText.text = $"Money: {PlayerController.Instance.Money}";
         waveText.text = $"Wave: {GameController.Instance.waveCounter}/{WaveMetadata.Waves.Count}";
+        buildersCounter.text = $"Builders: {PlayerController.Instance.NumberOfAvailableBuilders()}/{PlayerController.Instance.builders}";
         timerText.text = $"Time: {GameController.Instance.timeElapsed:F2}";
     }
 
