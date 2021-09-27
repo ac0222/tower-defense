@@ -118,7 +118,7 @@ MonoBehaviour:
   TurretName: Eva01
   projectilePrefab: {fileID: 602894149804576257, guid: 0e6b4591f984eb142a9e42d6b73618cc, type: 3}
   reloadTime: 1
-  throwingForce: 1000
+  throwingForce: 1500
   clipSize: 10
   roundsPerSecond: 10
 --- !u!70 &2316881608420295600

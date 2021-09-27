@@ -119,6 +119,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 714955638229831458, guid: 30e8a119561e03d46a38dfec58d8b600, type: 3}
   reloadTime: 1
   throwingForce: 1000
+  clipSize: 3
+  roundsPerSecond: 2
 --- !u!114 &5990292617721878870
 MonoBehaviour:
   m_ObjectHideFlags: 0
