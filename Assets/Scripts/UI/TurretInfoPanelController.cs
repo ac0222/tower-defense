@@ -9,6 +9,7 @@ public class TurretInfoPanelController : MonoBehaviour
 {
     public Button closeButton;
     public Button upgradeButton;
+    public Button tearDownButton;
     public Text turretNameText;
     public Text errorMessage;
     public Text turretDescriptionText;
@@ -26,6 +27,7 @@ public class TurretInfoPanelController : MonoBehaviour
         gameObject.SetActive(false);
         closeButton.onClick.AddListener(() => gameObject.SetActive(false));
         upgradeButton.onClick.AddListener(() => UpgradeTurret());
+        tearDownButton.onClick.AddListener(() => TearDownTurret());
     }
 
     public void FillInfo(GameObject turret, TurretMetadata turretMetadata)
@@ -82,5 +84,10 @@ public class TurretInfoPanelController : MonoBehaviour
             errorMessage.enabled = true;
             errorMessageTimer = timeToShowErrorMessage;
         }
+    }
+
+    void TearDownTurret()
+    {
+        Debug.Log("tearing down turret");
     }
 }
