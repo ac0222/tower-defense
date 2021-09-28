@@ -39,6 +39,13 @@ public class Byakuya : BasicTurret
                 petalTimer = petalSpawnTime;
             }
         }
+        else
+        {
+            if (numPetals > 0)
+            {
+                ClearPetals();
+            }
+        }
     }
 
     private void SpawnPetal()
@@ -54,5 +61,17 @@ public class Byakuya : BasicTurret
         petalScript.Alpha = Random.value * 360;
         petalScript.damage = petalDamage;
         numPetals++;
+    }
+
+    private void ClearPetals()
+    {
+        foreach(Transform t in transform)
+        {
+            if (t.gameObject.GetComponent<SenbonzakuraPetal>() != null)
+            {
+                Destroy(t.gameObject);
+            }
+        }
+        numPetals = 0;
     }
 }
