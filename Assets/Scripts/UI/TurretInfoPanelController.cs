@@ -88,6 +88,16 @@ public class TurretInfoPanelController : MonoBehaviour
 
     void TearDownTurret()
     {
-        Debug.Log("tearing down turret");
+        BasicTurret turretController = selectedTurret.GetComponent<BasicTurret>();
+        if (turretController.Status != Constants.ACTIVE)
+        {
+            Debug.Log("turret busy, can't start tear down");
+        }
+        else
+        {
+            turretController.TearDown();
+            gameObject.SetActive(false);
+            Debug.Log("starting tear down");
+        }
     }
 }

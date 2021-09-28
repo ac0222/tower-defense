@@ -26,7 +26,7 @@ public class BasicTurret : MonoBehaviour
         {
             TimeUntilBuilt -= Time.deltaTime;
         }
-        if (TimeUntilBuilt <= 0)
+        if (Status == Constants.BEING_BUILT && TimeUntilBuilt <= 0)
         {
             Status = Constants.ACTIVE;
         }
@@ -38,13 +38,16 @@ public class BasicTurret : MonoBehaviour
         {
             // add the turret back into player's inventory
             PlayerController.Instance.PlayerInventory.AddTurret(TurretName, 1);
+            // update ui panel
+            ConstructionPanelController.Instance.FillButtonGrid();
             Destroy(gameObject);
         }
     }
 
     public void TearDown()
     {
-        TimeUntilTornDown = 5;
+        Debug.Log("ok tear down");
+        TimeUntilTornDown = 1;
         Status = Constants.BEING_TORN_DOWN;
     }
 
