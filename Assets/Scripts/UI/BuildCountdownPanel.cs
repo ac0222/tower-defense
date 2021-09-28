@@ -20,6 +20,10 @@ public class BuildCountdownPanel : MonoBehaviour
         {
             countdownText.text = $"{(int)turretController.TimeUntilBuilt}";
         }
+        else if (turretController.TimeUntilTornDown > 0)
+        {
+            countdownText.text = $"{(int)turretController.TimeUntilTornDown}";
+        }
         else
         {
             countdownText.text = "";

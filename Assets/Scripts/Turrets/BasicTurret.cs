@@ -46,8 +46,7 @@ public class BasicTurret : MonoBehaviour
 
     public void TearDown()
     {
-        Debug.Log("ok tear down");
-        TimeUntilTornDown = 1;
+        TimeUntilTornDown = turretMetadata.TearDownTime;
         Status = Constants.BEING_TORN_DOWN;
     }
 

@@ -5,6 +5,7 @@ public class TurretMetadata
 {
     public string TurretName {get; set;}
     public float BuildTime {get; set;}
+    public float TearDownTime {get; set;}
     public float UpgradeCost {get; set;}
     public string TurretPrefabName {get; set;}
     public string UpgradePrefabName {get; set;}
@@ -19,6 +20,7 @@ public class TurretMetadata
          TurretMetadata tmdCopy = new TurretMetadata {
             TurretName = TurretName,
             BuildTime = BuildTime,
+            TearDownTime = TearDownTime,
             UpgradeCost = UpgradeCost,
             TurretDescription = TurretDescription,
             TurretPrefabName = TurretPrefabName,
@@ -35,6 +37,7 @@ public class TurretMetadata
         new TurretMetadata {
             TurretName = "Shinobi Lookout",
             BuildTime = 5,
+            TearDownTime = 2.5f,
             UpgradeCost = 88,
             TurretPrefabName = "Prefabs/Turrets/ShinobiLookout",
             UpgradePrefabName = "Prefabs/Turrets/UpgradedShinobiLookout",
@@ -47,6 +50,7 @@ public class TurretMetadata
         new TurretMetadata {
             TurretName = "Upgraded Shinobi Lookout",
             BuildTime = 5,
+            TearDownTime = 2.5f,
             TurretPrefabName = "Prefabs/Turrets/UpgradedShinobiLookout",
             TurretDescription = "Chunin that chucks kunais and fireballs",
             TurretCursorTextureName = "",
@@ -57,6 +61,7 @@ public class TurretMetadata
         new TurretMetadata {
             TurretName = "Eva01",
             BuildTime = 10,
+            TearDownTime = 5,
             UpgradeCost = 100,
             TurretPrefabName = "Prefabs/Turrets/EvaOne",
             UpgradePrefabName = "Prefabs/Turrets/UpgradedEvaOne",
@@ -69,6 +74,7 @@ public class TurretMetadata
         new TurretMetadata {
             TurretName = "Berserk Eva01",
             BuildTime = 10,
+            TearDownTime = 5,
             TurretPrefabName = "Prefabs/Turrets/UpgradedEvaOne",
             TurretDescription = "Angry robot",
             TurretCursorTextureName = "",
@@ -78,7 +84,8 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Byakuya",
-            BuildTime = 1,
+            BuildTime = 15,
+            TearDownTime = 7.5f,
             UpgradeCost = 150,
             TurretPrefabName = "Prefabs/Turrets/Byakuya",
             UpgradePrefabName = "Prefabs/Turrets/UpgradedByakuya",
@@ -90,7 +97,8 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Bankai Byakuya",
-            BuildTime = 1,
+            BuildTime = 15,
+            TearDownTime = 7.5f,
             TurretPrefabName = "Prefabs/Turrets/UpgradedByakuya",
             TurretDescription = "ban-KAI!",
             TurretCursorTextureName = "",

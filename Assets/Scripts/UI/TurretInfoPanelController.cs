@@ -89,15 +89,14 @@ public class TurretInfoPanelController : MonoBehaviour
     void TearDownTurret()
     {
         BasicTurret turretController = selectedTurret.GetComponent<BasicTurret>();
-        if (turretController.Status != Constants.ACTIVE)
+        if (turretController.Status != Constants.ACTIVE || PlayerController.Instance.NumberOfAvailableBuilders() <= 0)
         {
-            Debug.Log("turret busy, can't start tear down");
+            Debug.Log("turret busy or not enough builders, can't start tear down");
         }
         else
         {
             turretController.TearDown();
             gameObject.SetActive(false);
-            Debug.Log("starting tear down");
         }
     }
 }
