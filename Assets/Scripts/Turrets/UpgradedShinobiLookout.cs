@@ -22,7 +22,7 @@ public class UpgradedShinobiLookout : ProjectileTurret
     {
         base.FixedUpdate();
         timeUntilNextFireball -= Time.deltaTime;
-        if (IsBuilt && timeUntilNextFireball < 0)
+        if (Status == Constants.ACTIVE && timeUntilNextFireball < 0)
         {
             GameObject target = AcquireTarget();
             if (target == null) {

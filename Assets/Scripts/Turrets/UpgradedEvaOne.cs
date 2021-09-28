@@ -19,7 +19,7 @@ public class UpgradedEvaOne : EvaOne
     {
         base.FixedUpdate();
         timeUntilNextRoar -= Time.deltaTime;
-        if (IsBuilt && timeUntilNextRoar < 0)
+        if (Status == Constants.ACTIVE && timeUntilNextRoar < 0)
         {
             GameObject target = AcquireTarget();
             if (target != null)

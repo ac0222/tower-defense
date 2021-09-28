@@ -34,7 +34,7 @@ public class ProjectileTurret : BasicTurret
     {
         base.FixedUpdate();
         timeUntilNextShot -= Time.deltaTime;
-        if (IsBuilt && timeUntilNextShot < 0 && roundsLeftInClip > 0)
+        if (Status == Constants.ACTIVE && timeUntilNextShot < 0 && roundsLeftInClip > 0)
         {
             GameObject target = AcquireTarget();
             if (target == null) {

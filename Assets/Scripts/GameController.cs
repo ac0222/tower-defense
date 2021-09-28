@@ -78,7 +78,10 @@ public class GameController : MonoBehaviour
     public List<GameObject> TurretsUnderConstruction()
     {
         return turrets
-            .Where(t => !t.GetComponent<BasicTurret>().IsBuilt)
+            .Where((t) => {
+                string status = t.GetComponent<BasicTurret>().Status;
+                return status == Constants.BEING_BUILT || status == Constants.BEING_TORN_DOWN;
+            })
             .ToList();
     }
 }

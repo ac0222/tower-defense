@@ -6,26 +6,28 @@ using System.Linq;
 public class BasicTurret : MonoBehaviour
 {
     public float TimeUntilBuilt {get; protected set;}
-    public bool IsBuilt {get; protected set;} = false;
+    public string Status {get; protected set;} = string.Empty;
     public string TurretName;
+    TurretMetadata turretMetadata;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        TurretMetadata tmd = TurretMetadata.turretMetadataList
+        turretMetadata = TurretMetadata.turretMetadataList
             .FirstOrDefault(tmd => tmd.TurretName == TurretName);
-        TimeUntilBuilt = tmd == null ? 50 : tmd.BuildTime;
+        TimeUntilBuilt = turretMetadata == null ? 50 : turretMetadata.BuildTime;
+        Status = Constants.BEING_BUILT;
     }
 
     protected virtual void FixedUpdate()
     {
-        if (!IsBuilt)
+        if (Status == Constants.BEING_BUILT)
         {
             TimeUntilBuilt -= Time.deltaTime;
         }
         if (TimeUntilBuilt <= 0)
         {
-            IsBuilt = true;
+            Status = Constants.ACTIVE;
         }
     }
 

@@ -30,7 +30,7 @@ public class Byakuya : BasicTurret
 
     private void Update()
     {
-        if (IsBuilt)
+        if (Status == Constants.ACTIVE)
         {
             petalTimer -= Time.deltaTime;
             if (petalTimer <= 0 && numPetals < maxPetals)
