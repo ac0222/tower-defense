@@ -33,9 +33,9 @@ public class PlayerController : MonoBehaviour
     public void InitInventory()
     {
         PlayerInventory = new Inventory();
-        PlayerInventory.AvailableTurrets.Add("Shinobi Lookout", 8);
-        PlayerInventory.AvailableTurrets.Add("Eva01", 1);
-        PlayerInventory.AvailableTurrets.Add("Byakuya", 1);
+        PlayerInventory.AddTurret("Shinobi Lookout", 8);
+        PlayerInventory.AddTurret("Eva01", 1);
+        PlayerInventory.AddTurret("Byakuya", 1);
     }
 
     public void Reset()

@@ -56,15 +56,7 @@ public class RewardPanelController : MonoBehaviour
 
     void ClaimReward(TurretMetadata tmd)
     {
-        Dictionary<string, int> availableTurrets = PlayerController.Instance.PlayerInventory.AvailableTurrets;
-        if (availableTurrets.ContainsKey(tmd.TurretName))
-        {
-            availableTurrets[tmd.TurretName]++;
-        }
-        else
-        {
-            availableTurrets[tmd.TurretName] = 1;
-        }
+        PlayerController.Instance.PlayerInventory.AddTurret(tmd.TurretName, 1);
     }
 
     void ClearButtonGrid()

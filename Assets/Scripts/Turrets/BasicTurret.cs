@@ -5,6 +5,7 @@ using System.Linq;
 
 public class BasicTurret : MonoBehaviour
 {
+    public float TimeUntilTornDown {get; protected set;}
     public float TimeUntilBuilt {get; protected set;}
     public string Status {get; protected set;} = string.Empty;
     public string TurretName;
@@ -29,6 +30,22 @@ public class BasicTurret : MonoBehaviour
         {
             Status = Constants.ACTIVE;
         }
+        if (Status == Constants.BEING_TORN_DOWN)
+        {
+            TimeUntilTornDown -= Time.deltaTime;
+        }
+        if (Status == Constants.BEING_TORN_DOWN && TimeUntilTornDown <= 0)
+        {
+            // add the turret back into player's inventory
+            PlayerController.Instance.PlayerInventory.AddTurret(TurretName, 1);
+            Destroy(gameObject);
+        }
+    }
+
+    public void TearDown()
+    {
+        TimeUntilTornDown = 5;
+        Status = Constants.BEING_TORN_DOWN;
     }
 
     void OnDestroy()
