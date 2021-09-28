@@ -45,6 +45,7 @@ public class TurretInfoPanelController : MonoBehaviour
         {
             upgradeButton.gameObject.SetActive(false);
         }
+        tearDownButton.GetComponentInChildren<Text>().text = $"Tear Down: {turretMetadata.TearDownTime}s";
         turretImage.sprite = Resources.Load<Sprite>(turretMetadata.TurretButtonImageName);
     }
 
