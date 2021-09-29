@@ -66,6 +66,20 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void WaveCompleteActions()
+    {
+        RewardPanelController rpcInstance = RewardPanelController.Instance;
+        if (rpcInstance != null)
+        {
+            RewardPanelController.Instance.gameObject.SetActive(true);
+            RewardPanelController.Instance.GenerateAndShowRewards();
+        }
+        foreach(GameObject turretObject in turrets)
+        {
+            turretObject.GetComponent<BasicTurret>().WaveCompleteUpdate();
+        }
+    }
+
     public void Restart()
     {
         // reset wave

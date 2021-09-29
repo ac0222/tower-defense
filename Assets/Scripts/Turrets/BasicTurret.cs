@@ -57,6 +57,9 @@ public class BasicTurret : MonoBehaviour
 
     public virtual void NewWaveUpdate()
     {
-        Debug.Log("basic turret new wave update");
+    }
+
+    public virtual void WaveCompleteUpdate()
+    {
     }
 }

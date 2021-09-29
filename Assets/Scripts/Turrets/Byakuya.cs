@@ -6,11 +6,11 @@ using System.Linq;
 public class Byakuya : BasicTurret
 {
     // petals
+    public int startPetals = 5;
     public int petalsPerWave = 5;
     public int maxPetals = 20;
     public float petalSpeed = 180;
     public float petalDamage = 2;
-    private float petalTimer = 0;
     private float numPetals = 0;
 
     // projectile prefabs
@@ -24,16 +24,16 @@ public class Byakuya : BasicTurret
     {
         base.Start();        
         orbitRadius = GetComponent<CircleCollider2D>();
-        petalTimer = 0;
         numPetals = 0;
+        for (int i = 0; i < startPetals; i++)
+        {
+            SpawnPetal();
+        }
     }
 
     private void Update()
     {
-        if (Status != Constants.ACTIVE && numPetals > 0)
-        {
-            ClearPetals();
-        }
+
     }
 
     private void SpawnPetal()
@@ -63,7 +63,7 @@ public class Byakuya : BasicTurret
         numPetals = 0;
     }
 
-    public override void NewWaveUpdate()
+    public override void WaveCompleteUpdate()
     {
         for (int i = 0; i < petalsPerWave; i++)
         {
