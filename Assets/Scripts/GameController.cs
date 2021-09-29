@@ -59,6 +59,10 @@ public class GameController : MonoBehaviour
             GameObject msp = Instantiate(minionSpawnerPrefab, MapPoints.Instance.spawnPoint.transform.position, Quaternion.identity);  
             msp.GetComponent<MinionSpawner>().waveInfo = WaveMetadata.Waves[waveCounter].SpawnEvents;
             waveCounter++;
+            foreach(GameObject turretObject in turrets)
+            {
+                turretObject.GetComponent<BasicTurret>().NewWaveUpdate();
+            }
         }
     }
 

@@ -6,7 +6,7 @@ using System.Linq;
 public class Byakuya : BasicTurret
 {
     // petals
-    public float petalSpawnTime = 5.0f;
+    public int petalsPerWave = 5;
     public int maxPetals = 20;
     public float petalSpeed = 180;
     public float petalDamage = 2;
@@ -30,21 +30,9 @@ public class Byakuya : BasicTurret
 
     private void Update()
     {
-        if (Status == Constants.ACTIVE)
+        if (Status != Constants.ACTIVE && numPetals > 0)
         {
-            petalTimer -= Time.deltaTime;
-            if (petalTimer <= 0 && numPetals < maxPetals)
-            {
-                SpawnPetal();
-                petalTimer = petalSpawnTime;
-            }
-        }
-        else
-        {
-            if (numPetals > 0)
-            {
-                ClearPetals();
-            }
+            ClearPetals();
         }
     }
 
@@ -73,5 +61,13 @@ public class Byakuya : BasicTurret
             }
         }
         numPetals = 0;
+    }
+
+    public override void NewWaveUpdate()
+    {
+        for (int i = 0; i < petalsPerWave; i++)
+        {
+            SpawnPetal();
+        }
     }
 }

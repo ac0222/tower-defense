@@ -54,4 +54,9 @@ public class BasicTurret : MonoBehaviour
     {
         GameController.Instance.turrets.Remove(gameObject);
     }
+
+    public virtual void NewWaveUpdate()
+    {
+        Debug.Log("basic turret new wave update");
+    }
 }
