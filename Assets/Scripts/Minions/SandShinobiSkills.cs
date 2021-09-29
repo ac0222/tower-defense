@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SandShinobiSkills : MonoBehaviour
 {
+    public float barrierCooldownStart;
     public float barrierCooldown;
     public float barrierDuration;
     private float barrierDurationTimer;
@@ -13,7 +14,7 @@ public class SandShinobiSkills : MonoBehaviour
 
     void Start()
     {
-        barrierCooldownTimer = barrierCooldown;
+        barrierCooldownTimer = barrierCooldownStart;
         barrierDurationTimer = barrierDuration;
     }
 

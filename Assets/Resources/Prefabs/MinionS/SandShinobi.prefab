@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fde4e9a7edad9f47b638872b5a73f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barrierCooldownStart: 0
   barrierCooldown: 5
-  barrierDuration: 2
+  barrierDuration: 5
   windBarrierPrefab: {fileID: 6710929312625876476, guid: 7ee3bd0dec961f24a94f4639b6c1dcf8, type: 3}

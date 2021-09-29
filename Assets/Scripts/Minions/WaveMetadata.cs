@@ -3,6 +3,22 @@ using System.Linq;
 
 public static class WaveMetadata 
 {
+    public static List<SpawnEvent> GenerateMinionGroup(
+        string minionName, int groupSize, float spawnInterval, float endInterval)
+    {
+        List<SpawnEvent> spawnGroup = new List<SpawnEvent>();
+        for (int i = 0; i < groupSize; i++)
+        {
+            SpawnEvent se = new SpawnEvent {MinionPrefabName = minionName, TimeUntilNextSpawn = spawnInterval};
+            if (i == groupSize - 1)
+            {   
+                se.TimeUntilNextSpawn = endInterval;
+            }
+            spawnGroup.Add(se);
+        }
+        return spawnGroup;
+    }
+
     private static List<SpawnEvent> MistShinobiGroup = new List<SpawnEvent> {
         new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 0.2f},
         new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 0.2f},
@@ -27,6 +43,22 @@ public static class WaveMetadata
         new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 2f},
     };
 
+    private static List<SpawnEvent> SandCellEarlyBarrier = new List<SpawnEvent> {
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
+        new SpawnEvent { MinionPrefabName = "SandShinobiEarlyBarrier", TimeUntilNextSpawn = 0.2f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 2f},
+    };
+
+    private static List<SpawnEvent> SandCellLateBarrier = new List<SpawnEvent> {
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
+        new SpawnEvent { MinionPrefabName = "SandShinobiLateBarrier", TimeUntilNextSpawn = 0.2f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 2f},
+    };
+
     private static List<SpawnEvent> TripleMix = new List<SpawnEvent> {
         new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
         new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.2f},
@@ -44,7 +76,30 @@ public static class WaveMetadata
         new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
         new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
         new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
-        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 2f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 1f},
+    };
+    private static List<SpawnEvent> SandPhalanxEarly = new List<SpawnEvent> {
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.05f},
+        new SpawnEvent { MinionPrefabName = "SandShinobiEarlyBarrier", TimeUntilNextSpawn = 0.05f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 1f},
+    };
+
+    private static List<SpawnEvent> SandPhalanxLate = new List<SpawnEvent> {
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.05f},
+        new SpawnEvent { MinionPrefabName = "SandShinobiLateBarrier", TimeUntilNextSpawn = 0.05f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 0.1f},
+        new SpawnEvent { MinionPrefabName = "Minion", TimeUntilNextSpawn = 1f},
     };
 
     private static List<SpawnEvent> StormTrooperSquad = new List<SpawnEvent> {
@@ -57,113 +112,88 @@ public static class WaveMetadata
         new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 0.05f},
         new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 0.05f},
         new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 0.05f},
-        new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 2f},
+        new SpawnEvent { MinionPrefabName = "MistShinobi", TimeUntilNextSpawn = 1f},
     };
 
     public static Wave Wave1 = new Wave {
-        SpawnEvents = MinionsOnlyGroup
-            .Concat(MinionsOnlyGroup)
-            .ToList(),
-        Timing = 1
+        SpawnEvents = GenerateMinionGroup("Minion", 20, 1f, 1),
+        Timing = 170
     };
     public static Wave Wave2 = new Wave {
-        SpawnEvents = MinionsOnlyGroup
-            .Concat(MinionsOnlyGroup)
-            .Concat(MinionsOnlyGroup)
+        SpawnEvents = SandCellLateBarrier
+            .Concat(SandCellLateBarrier)
+            .Concat(SandCellLateBarrier)
             .ToList(),
-        Timing = 10
+        Timing = 1700
     };
     public static Wave Wave3 = new Wave {
-        SpawnEvents = MinionsOnlyGroup
-            .Concat(SandCell)
-            .Concat(MinionsOnlyGroup)
-            .Concat(SandCell)
+        SpawnEvents =  SandCellEarlyBarrier
+            .Concat(SandCellEarlyBarrier)
+            .Concat(SandCellEarlyBarrier)
             .ToList(),
-        Timing = 20
+        Timing = 1700
     };
     public static Wave Wave4 = new Wave {
-        SpawnEvents = SandCell
-            .Concat(SandCell)
-            .Concat(SandCell)
-            .Concat(SandCell)
-            .Concat(SandCell)
-            .ToList(),
-        Timing = 40
-    };
-
-    public static Wave Wave5 = new Wave {
-        SpawnEvents = SandCell
-            .Concat(SandCell)
-            .Concat(TripleMix)
-            .Concat(SandCell)
-            .Concat(SandCell)
-            .Concat(TripleMix)
-            .ToList(),
-        Timing = 60
-    };
-
-    public static Wave Wave6 = new Wave {
         SpawnEvents = TripleMix
             .Concat(TripleMix)
             .Concat(TripleMix)
             .Concat(TripleMix)
-            .Concat(TripleMix)
-            .Concat(TripleMix)
-            .Concat(TripleMix)
             .ToList(),
-        Timing = 90
+        Timing = 1700
     };
-    public static Wave Wave7 = new Wave {
+
+    public static Wave Wave5 = new Wave {
         SpawnEvents = SandPhalanx
-            .Concat(SandPhalanx)
-            .Concat(SandPhalanx)
-            .Concat(SandPhalanx)
-            .Concat(SandPhalanx)
-            .Concat(SandPhalanx)
-            .Concat(SandPhalanx)
-            .ToList(),
-        Timing = 120
-    };
-    public static Wave Wave8 = new Wave {
-        SpawnEvents = SandPhalanx
-            .Concat(SandPhalanx)
-            .Concat(SandPhalanx)
-            .Concat(SandPhalanx)
-            .Concat(MistShinobiGroup)
             .Concat(MistShinobiGroup)
             .Concat(SandPhalanx)
-            .Concat(SandPhalanx)
-            .Concat(SandPhalanx)
-            .Concat(SandPhalanx)
-            .Concat(MistShinobiGroup)
             .Concat(MistShinobiGroup)
             .ToList(),
-        Timing = 150
+        Timing = 1700
     };
-    public static Wave Wave9 = new Wave {
+
+    public static Wave Wave6 = new Wave {
         SpawnEvents = StormTrooperSquad
             .Concat(StormTrooperSquad)
             .Concat(StormTrooperSquad)
             .Concat(StormTrooperSquad)
             .Concat(StormTrooperSquad)
-            .Concat(StormTrooperSquad)
             .ToList(),
-        Timing = 170
+        Timing = 1700
     };
-    public static Wave Wave10 = new Wave {
+    public static Wave Wave7 = new Wave {
         SpawnEvents = SandPhalanx
+            .Concat(SandPhalanx)
+            .Concat(GenerateMinionGroup("Minion", 50, 0.1f, 1))
+            .Concat(SandPhalanx)
+            .Concat(GenerateMinionGroup("Minion", 50, 0.1f, 1))
+            .Concat(SandPhalanx)
+            .ToList(),
+        Timing = 1700
+    };
+    public static Wave Wave8 = new Wave {
+        SpawnEvents = SandPhalanx
+            .Concat(SandPhalanx)
+            .Concat(GenerateMinionGroup("Minion", 50, 0.1f, 1))
             .Concat(StormTrooperSquad)
             .Concat(SandPhalanx)
+            .Concat(GenerateMinionGroup("Minion", 50, 0.1f, 1))
             .Concat(StormTrooperSquad)
             .Concat(SandPhalanx)
-            .Concat(StormTrooperSquad)
-            .Concat(StormTrooperSquad)
-            .Concat(SandPhalanx)
-            .Concat(StormTrooperSquad)
-            .Concat(SandPhalanx)
+            .Concat(GenerateMinionGroup("Minion", 50, 0.1f, 1))
             .Concat(StormTrooperSquad)
             .ToList(),
-        Timing = 200
+        Timing = 1700
+    };
+    public static Wave Wave9 = new Wave {
+        SpawnEvents = SandPhalanxEarly
+            .Concat(SandPhalanxLate)
+            .Concat(StormTrooperSquad)
+            .Concat(StormTrooperSquad)
+            .Concat(GenerateMinionGroup("Minion", 200, 0.01f, 1))
+            .Concat(StormTrooperSquad)
+            .Concat(StormTrooperSquad)
+            .ToList(),
+        Timing = 1700
     };
 
     public static List<Wave> Waves = new List<Wave> {
@@ -175,8 +205,7 @@ public static class WaveMetadata
         Wave6,
         Wave7,
         Wave8,
-        Wave9,
-        Wave10
+        Wave9
     };
 
     public static int TotalMinions = Waves.Select(wv => wv.SpawnEvents.Count).Sum();
