@@ -2368,8 +2368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1583f6116c4c3747b2786f72411e686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildPointsPerWave: 3
+  buildPoints: 3
   builders: 2
-  maxLives: 1000
+  maxLives: 10
   startingMoney: 200
 --- !u!1 &749858951
 GameObject:
