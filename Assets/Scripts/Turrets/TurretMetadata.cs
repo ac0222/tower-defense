@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class TurretMetadata
 {
+    public int BuildCost {get; set;}
     public string TurretName {get; set;}
     public float BuildTime {get; set;}
     public float TearDownTime {get; set;}
@@ -18,6 +19,7 @@ public class TurretMetadata
     public TurretMetadata CreateCopy()
     {
          TurretMetadata tmdCopy = new TurretMetadata {
+            BuildCost = BuildCost,
             TurretName = TurretName,
             BuildTime = BuildTime,
             TearDownTime = TearDownTime,
@@ -36,6 +38,7 @@ public class TurretMetadata
     public static List<TurretMetadata> turretMetadataList = new List<TurretMetadata> {
         new TurretMetadata {
             TurretName = "Shinobi Lookout",
+            BuildCost = 1,
             BuildTime = 1,
             TearDownTime = 1,
             UpgradeCost = 88,
@@ -49,6 +52,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Upgraded Shinobi Lookout",
+            BuildCost = 1,
             BuildTime = 1,
             TearDownTime = 1,
             TurretPrefabName = "Prefabs/Turrets/UpgradedShinobiLookout",
@@ -60,6 +64,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Eva01",
+            BuildCost = 2,
             BuildTime = 1,
             TearDownTime = 1,
             UpgradeCost = 100,
@@ -73,6 +78,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Berserk Eva01",
+            BuildCost = 2,
             BuildTime = 1,
             TearDownTime = 1,
             TurretPrefabName = "Prefabs/Turrets/UpgradedEvaOne",
@@ -84,6 +90,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Byakuya",
+            BuildCost = 4,
             BuildTime = 1,
             TearDownTime = 1,
             UpgradeCost = 150,
@@ -97,6 +104,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Bankai Byakuya",
+            BuildCost = 4,
             BuildTime = 1,
             TearDownTime = 1,
             TurretPrefabName = "Prefabs/Turrets/UpgradedByakuya",

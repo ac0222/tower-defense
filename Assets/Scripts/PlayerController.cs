@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
             return instance;
         }
     }
-
+    public int buildPointsPerWave = 3;
+    public int buildPoints = 0;
     public int builders = 3;
     public int maxLives = 1000;
     public int Lives {get; private set;}

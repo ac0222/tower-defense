@@ -13,6 +13,7 @@ public class ConstructionPanelController : MonoBehaviour
     public Text errorMessage;
 
     // build mode
+    TurretMetadata tmd;
     private string turretName;
     private GameObject turretPrefab;
     private Texture2D buildModeCursorTexture;
@@ -113,6 +114,7 @@ public class ConstructionPanelController : MonoBehaviour
 
     void SetTurrentBuildModeData(TurretMetadata turretMetadata)
     {
+        tmd = turretMetadata;
         turretName = turretMetadata.TurretName;
         numberInInventory = PlayerController.Instance.PlayerInventory.NumberOfTurrets(turretName);
         turretPrefab = Resources.Load<GameObject>(turretMetadata.TurretPrefabName);
@@ -138,7 +140,7 @@ public class ConstructionPanelController : MonoBehaviour
 
     bool CanEnterBuildMode()
     {
-        return numberInInventory > 0 && (PlayerController.Instance.NumberOfAvailableBuilders() > 0);
+        return numberInInventory > 0 && (PlayerController.Instance.buildPoints >= tmd.BuildCost);
     }
 
     void ExitBuildMode()
@@ -151,5 +153,6 @@ public class ConstructionPanelController : MonoBehaviour
     {
         GameObject newTurret = Instantiate(turretPrefab, position, Quaternion.identity);
         GameController.Instance.turrets.Add(newTurret);
+        PlayerController.Instance.buildPoints -= tmd.BuildCost;
     }
 }

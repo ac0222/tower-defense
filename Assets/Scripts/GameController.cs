@@ -78,6 +78,7 @@ public class GameController : MonoBehaviour
         {
             turretObject.GetComponent<BasicTurret>().WaveCompleteUpdate();
         }
+        PlayerController.Instance.buildPoints += PlayerController.Instance.buildPointsPerWave;
     }
 
     public void Restart()

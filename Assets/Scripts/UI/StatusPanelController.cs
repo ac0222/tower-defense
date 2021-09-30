@@ -18,7 +18,7 @@ public class StatusPanelController : MonoBehaviour, IPointerClickHandler
         livesText.text = $"Lives: {PlayerController.Instance.Lives}";
         moneyText.text = $"Money: {PlayerController.Instance.Money}";
         waveText.text = $"Wave: {GameController.Instance.waveCounter}/{WaveMetadata.Waves.Count}";
-        buildersCounter.text = $"Builders: {PlayerController.Instance.NumberOfAvailableBuilders()}/{PlayerController.Instance.builders}";
+        buildersCounter.text = $"Build Points: {PlayerController.Instance.buildPoints}";
         timerText.text = $"Time: {GameController.Instance.timeElapsed:F2}";
     }
 
