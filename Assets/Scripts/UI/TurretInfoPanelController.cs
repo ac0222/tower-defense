@@ -8,7 +8,6 @@ using System.Linq;
 public class TurretInfoPanelController : MonoBehaviour
 {
     public Button closeButton;
-    public Button upgradeButton;
     public Button tearDownButton;
     public Text turretNameText;
     public Text errorMessage;
@@ -26,7 +25,6 @@ public class TurretInfoPanelController : MonoBehaviour
         Instance = this;
         gameObject.SetActive(false);
         closeButton.onClick.AddListener(() => gameObject.SetActive(false));
-        upgradeButton.onClick.AddListener(() => UpgradeTurret());
         tearDownButton.onClick.AddListener(() => TearDownTurret());
     }
 
@@ -36,15 +34,6 @@ public class TurretInfoPanelController : MonoBehaviour
         selectedMetadata = turretMetadata;
         turretNameText.text = turretMetadata.TurretName;
         turretDescriptionText.text = turretMetadata.TurretDescription;
-        if (turretMetadata.IsUpgradeable)
-        {
-            upgradeButton.gameObject.SetActive(true);
-            upgradeButton.GetComponentInChildren<Text>().text = $"Upgrade: ${turretMetadata.UpgradeCost}";
-        }
-        else
-        {
-            upgradeButton.gameObject.SetActive(false);
-        }
         tearDownButton.GetComponentInChildren<Text>().text = $"Tear Down: {turretMetadata.TearDownTime}s";
         turretImage.sprite = Resources.Load<Sprite>(turretMetadata.TurretButtonImageName);
     }
