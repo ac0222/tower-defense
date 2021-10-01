@@ -9,6 +9,7 @@ public class WaveCompleteUIController : MonoBehaviour
 {
     void OnDestroy()
     {
-        GameController.Instance.WaveCompleteActions();
+        Wave waveInfo = gameObject.GetComponent<MinionSpawner>().waveInfo;
+        GameController.Instance.WaveCompleteActions(waveInfo);
     }
 }

@@ -7,8 +7,8 @@ public class MinionSpawner : MonoBehaviour
 {
     private int spawnIndex;
     private float spawnTimer;
+    public Wave waveInfo;
     public List<GameObject> minionPrefabs;
-    public List<SpawnEvent> waveInfo;
     private List<GameObject> spawnedMinions = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class MinionSpawner : MonoBehaviour
     void Update()
     {
         spawnTimer -= Time.deltaTime;
-        if (spawnTimer <= 0 && (spawnIndex < waveInfo.Count)) {
+        if (spawnTimer <= 0 && (spawnIndex < waveInfo.SpawnEvents.Count)) {
            SpawnMinion();
         }
         if (spawnedMinions.All(m => m == null))
@@ -33,7 +33,7 @@ public class MinionSpawner : MonoBehaviour
 
     void SpawnMinion()
     {
-        SpawnEvent currentSpawnEvent = waveInfo[spawnIndex];
+        SpawnEvent currentSpawnEvent = waveInfo.SpawnEvents[spawnIndex];
         GameObject prefabToSpawn = minionPrefabs
             .FirstOrDefault(mp => mp.GetComponent<MinionController>().minionName == currentSpawnEvent.MinionPrefabName);
         GameObject minion = Instantiate(prefabToSpawn, this.transform.position, Quaternion.identity);

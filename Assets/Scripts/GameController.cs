@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
         if (waveCounter < WaveMetadata.Waves.Count)
         {
             GameObject msp = Instantiate(minionSpawnerPrefab, MapPoints.Instance.spawnPoint.transform.position, Quaternion.identity);  
-            msp.GetComponent<MinionSpawner>().waveInfo = WaveMetadata.Waves[waveCounter].SpawnEvents;
+            msp.GetComponent<MinionSpawner>().waveInfo = WaveMetadata.Waves[waveCounter];
             waveCounter++;
             foreach(GameObject turretObject in turrets)
             {
@@ -66,10 +66,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void WaveCompleteActions()
+    public void WaveCompleteActions(Wave waveInfo)
     {
         RewardPanelController rpcInstance = RewardPanelController.Instance;
-        if (rpcInstance != null)
+        if (rpcInstance != null && waveInfo.YieldsReward)
         {
             RewardPanelController.Instance.gameObject.SetActive(true);
             RewardPanelController.Instance.GenerateAndShowRewards();

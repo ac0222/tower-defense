@@ -40,19 +40,6 @@ public class TurretInfoPanelController : MonoBehaviour
 
     void Update()
     {
-        UpdateErrorMessage();
-    }
-
-    void UpdateErrorMessage()
-    {
-        if (errorMessage.enabled)
-        {
-            errorMessageTimer -= Time.deltaTime;
-        }
-        if (errorMessageTimer <= 0)
-        {
-            errorMessage.enabled = false;
-        }
     }
 
     void UpgradeTurret()
