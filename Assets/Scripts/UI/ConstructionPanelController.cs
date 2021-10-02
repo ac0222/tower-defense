@@ -58,7 +58,7 @@ public class ConstructionPanelController : MonoBehaviour
                 });
                 
                 Text buttonText = buttonObject.GetComponentInChildren<Text>();
-                buttonText.text = $"{numTurrets}";
+                buttonText.text = $"{numTurrets}:{tmd.BuildCost}";
 
                 Image buttonImage = buttonObject.GetComponentsInChildren<Image>()
                     .Where(img => img.gameObject.GetInstanceID() != buttonObject.GetInstanceID())
