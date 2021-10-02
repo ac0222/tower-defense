@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TurretName: Bankai Byakuya
-  petalSpawnTime: 3
+  startPetals: 5
+  petalsPerWave: 5
   maxPetals: 50
   petalSpeed: 180
   petalDamage: 2
@@ -228,7 +229,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 
 --- !u!1 &7858672831979011917
 GameObject:
   m_ObjectHideFlags: 0

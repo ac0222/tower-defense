@@ -34,7 +34,7 @@ public class TurretInfoPanelController : MonoBehaviour
         selectedMetadata = turretMetadata;
         turretNameText.text = turretMetadata.TurretName;
         turretDescriptionText.text = turretMetadata.TurretDescription;
-        tearDownButton.GetComponentInChildren<Text>().text = $"Tear Down: {turretMetadata.TearDownTime}s";
+        tearDownButton.GetComponentInChildren<Text>().text = $"Tear Down";
         turretImage.sprite = Resources.Load<Sprite>(turretMetadata.TurretButtonImageName);
     }
 

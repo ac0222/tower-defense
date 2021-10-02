@@ -229,7 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TurretName: Byakuya
-  petalSpawnTime: 5
+  startPetals: 5
+  petalsPerWave: 5
   maxPetals: 25
   petalSpeed: 120
   petalDamage: 1
@@ -341,4 +342,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 

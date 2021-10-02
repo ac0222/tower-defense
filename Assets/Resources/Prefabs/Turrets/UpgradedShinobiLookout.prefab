@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 
 --- !u!1 &4273778301722544282
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +198,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 714955638229831458, guid: 30e8a119561e03d46a38dfec58d8b600, type: 3}
   reloadTime: 0.5
   throwingForce: 1000
+  clipSize: 1
+  roundsPerSecond: 1
   fireballPrefab: {fileID: 7227520785658761995, guid: 4c5a7593424cb4c47a5dd77e309e0ce9, type: 3}
   fireballReloadTime: 1
   fireballThrowingForce: 300
