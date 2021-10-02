@@ -27,7 +27,7 @@ public class WaveInfoPanel : MonoBehaviour
             GameObject waveTextObject = Instantiate(waveInfoTextPrefab, Vector3.zero, Quaternion.identity);
             
             Text waveText = waveTextObject.GetComponentInChildren<Text>();
-            waveText.text = $"Wave #{i+1} will be sent at: {wave.Timing} seconds.\nThere will be {wave.SpawnEvents.Count} enemies";
+            waveText.text = $"Wave #{i+1} contains {wave.SpawnEvents.Count} enemies";
             
             waveTextObject.transform.SetParent(waveGrid.transform);
             waveTextObject.transform.localScale = Vector3.one;

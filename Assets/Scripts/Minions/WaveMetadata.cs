@@ -116,15 +116,13 @@ public static class WaveMetadata
     };
 
     public static Wave Wave1 = new Wave {
-        SpawnEvents = GenerateMinionGroup("Minion", 20, 1f, 1),
-        Timing = 170
+        SpawnEvents = GenerateMinionGroup("Minion", 20, 1f, 1)
     };
     public static Wave Wave2 = new Wave {
         SpawnEvents = SandCellLateBarrier
             .Concat(SandCellLateBarrier)
             .Concat(SandCellLateBarrier)
             .ToList(),
-        Timing = 1700,
         YieldsReward = true
     };
     public static Wave Wave3 = new Wave {
@@ -132,7 +130,6 @@ public static class WaveMetadata
             .Concat(SandCellEarlyBarrier)
             .Concat(SandCellEarlyBarrier)
             .ToList(),
-        Timing = 1700
     };
     public static Wave Wave4 = new Wave {
         SpawnEvents = TripleMix
@@ -140,7 +137,6 @@ public static class WaveMetadata
             .Concat(TripleMix)
             .Concat(TripleMix)
             .ToList(),
-        Timing = 1700
     };
 
     public static Wave Wave5 = new Wave {
@@ -149,7 +145,6 @@ public static class WaveMetadata
             .Concat(SandPhalanx)
             .Concat(MistShinobiGroup)
             .ToList(),
-        Timing = 1700
     };
 
     public static Wave Wave6 = new Wave {
@@ -159,7 +154,6 @@ public static class WaveMetadata
             .Concat(StormTrooperSquad)
             .Concat(StormTrooperSquad)
             .ToList(),
-        Timing = 1700
     };
     public static Wave Wave7 = new Wave {
         SpawnEvents = SandPhalanx
@@ -169,7 +163,6 @@ public static class WaveMetadata
             .Concat(GenerateMinionGroup("Minion", 50, 0.1f, 1))
             .Concat(SandPhalanx)
             .ToList(),
-        Timing = 1700
     };
     public static Wave Wave8 = new Wave {
         SpawnEvents = SandPhalanx
@@ -183,7 +176,6 @@ public static class WaveMetadata
             .Concat(GenerateMinionGroup("Minion", 50, 0.1f, 1))
             .Concat(StormTrooperSquad)
             .ToList(),
-        Timing = 1700
     };
     public static Wave Wave9 = new Wave {
         SpawnEvents = SandPhalanxEarly
@@ -194,7 +186,6 @@ public static class WaveMetadata
             .Concat(StormTrooperSquad)
             .Concat(StormTrooperSquad)
             .ToList(),
-        Timing = 1700
     };
 
     public static List<Wave> Waves = new List<Wave> {

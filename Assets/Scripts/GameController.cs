@@ -32,11 +32,6 @@ public class GameController : MonoBehaviour
     void Update()
     {
         timeElapsed += Time.deltaTime;
-        if (waveCounter < WaveMetadata.Waves.Count 
-            && timeElapsed >= WaveMetadata.Waves[waveCounter].Timing)
-        {
-            CreateNextWave();
-        }
     }
 
     public string GetGameState()
