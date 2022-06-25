@@ -122,8 +122,7 @@ public static class WaveMetadata
         SpawnEvents = SandCellLateBarrier
             .Concat(SandCellLateBarrier)
             .Concat(SandCellLateBarrier)
-            .ToList(),
-        YieldsReward = true
+            .ToList()
     };
     public static Wave Wave3 = new Wave {
         SpawnEvents =  SandCellEarlyBarrier

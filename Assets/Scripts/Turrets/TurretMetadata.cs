@@ -38,7 +38,7 @@ public class TurretMetadata
     public static List<TurretMetadata> turretMetadataList = new List<TurretMetadata> {
         new TurretMetadata {
             TurretName = "Shinobi Lookout",
-            BuildCost = 1,
+            BuildCost = 0,
             BuildTime = 0,
             TearDownTime = 0,
             UpgradeCost = 88,
@@ -52,7 +52,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Upgraded Shinobi Lookout",
-            BuildCost = 1,
+            BuildCost = 0,
             BuildTime = 0,
             TearDownTime = 0,
             TurretPrefabName = "Prefabs/Turrets/UpgradedShinobiLookout",
@@ -64,7 +64,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Eva01",
-            BuildCost = 2,
+            BuildCost = 0,
             BuildTime = 0,
             TearDownTime = 0,
             UpgradeCost = 100,
@@ -78,7 +78,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Berserk Eva01",
-            BuildCost = 2,
+            BuildCost = 0,
             BuildTime = 0,
             TearDownTime = 0,
             TurretPrefabName = "Prefabs/Turrets/UpgradedEvaOne",
@@ -90,7 +90,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Byakuya",
-            BuildCost = 4,
+            BuildCost = 0,
             BuildTime = 0,
             TearDownTime = 0,
             UpgradeCost = 150,
@@ -104,7 +104,7 @@ public class TurretMetadata
         },
         new TurretMetadata {
             TurretName = "Bankai Byakuya",
-            BuildCost = 4,
+            BuildCost = 0,
             BuildTime = 0,
             TearDownTime = 0,
             TurretPrefabName = "Prefabs/Turrets/UpgradedByakuya",
