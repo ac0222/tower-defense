@@ -7,6 +7,7 @@ using System.Linq;
 
 public class TurretInfoPanelController : MonoBehaviour
 {
+    public Button upgradeButton;
     public Button closeButton;
     public Button tearDownButton;
     public Text turretNameText;
@@ -26,6 +27,7 @@ public class TurretInfoPanelController : MonoBehaviour
         gameObject.SetActive(false);
         closeButton.onClick.AddListener(() => gameObject.SetActive(false));
         tearDownButton.onClick.AddListener(() => TearDownTurret());
+        upgradeButton.onClick.AddListener(() => UpgradeTurret());
     }
 
     public void FillInfo(GameObject turret, TurretMetadata turretMetadata)
@@ -40,21 +42,28 @@ public class TurretInfoPanelController : MonoBehaviour
 
     void Update()
     {
+        if (errorMessage.enabled) 
+        {
+            errorMessageTimer -= Time.deltaTime;
+        }
+        if (errorMessageTimer < 0)
+        {
+            errorMessage.enabled = false;
+        }
     }
 
     void UpgradeTurret()
     {
-        if (PlayerController.Instance.Money >= selectedMetadata.UpgradeCost)
+        TurretMetadata upgradedMetadata = TurretMetadata.turretMetadataList
+                .Where(tmd => tmd.TurretPrefabName == selectedMetadata.UpgradePrefabName)
+                .FirstOrDefault();
+        if (PlayerController.Instance.PlayerInventory.NumberOfTurrets(upgradedMetadata.TurretName) > 0)
         {
             GameObject upgradedPrefab = Resources.Load<GameObject>(selectedMetadata.UpgradePrefabName);
             GameObject newTurret = Instantiate(upgradedPrefab, selectedTurret.transform.position, Quaternion.identity);
-            string newTurretName = newTurret.GetComponent<TurretUIController>().turretName;
-            TurretMetadata newMetadata = TurretMetadata.turretMetadataList
-                .Where(tmd => tmd.TurretName == newTurretName)
-                .FirstOrDefault();
             Destroy(selectedTurret);
-            PlayerController.Instance.ChangeMoney(-1 * selectedMetadata.UpgradeCost);
-            FillInfo(newTurret, newMetadata);
+            PlayerController.Instance.PlayerInventory.AddTurret(upgradedMetadata.TurretName, -1);
+            FillInfo(newTurret, upgradedMetadata);
         }
         else
         {
