@@ -64,6 +64,7 @@ public class TurretInfoPanelController : MonoBehaviour
             Destroy(selectedTurret);
             PlayerController.Instance.PlayerInventory.AddTurret(upgradedMetadata.TurretName, -1);
             FillInfo(newTurret, upgradedMetadata);
+            ConstructionPanelController.Instance.FillButtonGrid();
         }
         else
         {

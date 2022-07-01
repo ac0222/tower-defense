@@ -116,7 +116,7 @@ public static class WaveMetadata
     };
 
     public static Wave Wave1 = new Wave {
-        SpawnEvents = GenerateMinionGroup("Minion", 20, 1f, 1)
+        SpawnEvents = GenerateMinionGroup("Minion", 2, 1f, 1)
     };
     public static Wave Wave2 = new Wave {
         SpawnEvents = SandCellLateBarrier
