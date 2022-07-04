@@ -51,6 +51,45 @@ public class TurretMetadata
             IsUpgradeable = true
         },
         new TurretMetadata {
+            TurretName = "Ichigo",
+            BuildCost = 0,
+            BuildTime = 0,
+            TearDownTime = 0,
+            UpgradeCost = 0,
+            TurretPrefabName = "Prefabs/Turrets/Ichigo",
+            TurretDescription = "Bleach MC",
+            TurretCursorTextureName = "",
+            TurretButtonImageName = "Art/Turrets/ichigo",
+            IsBuildable = true,
+            IsUpgradeable = true
+        },
+        new TurretMetadata {
+            TurretName = "Renji",
+            BuildCost = 0,
+            BuildTime = 0,
+            TearDownTime = 0,
+            UpgradeCost = 0,
+            TurretPrefabName = "Prefabs/Turrets/Renji",
+            TurretDescription = "Bleach male supporting character",
+            TurretCursorTextureName = "",
+            TurretButtonImageName = "Art/Turrets/renji",
+            IsBuildable = true,
+            IsUpgradeable = true
+        },
+        new TurretMetadata {
+            TurretName = "Rukia",
+            BuildCost = 0,
+            BuildTime = 0,
+            TearDownTime = 0,
+            UpgradeCost = 0,
+            TurretPrefabName = "Prefabs/Turrets/Rukia",
+            TurretDescription = "Bleach female supporting character",
+            TurretCursorTextureName = "",
+            TurretButtonImageName = "Art/Turrets/rukia",
+            IsBuildable = true,
+            IsUpgradeable = true
+        },
+        new TurretMetadata {
             TurretName = "Upgraded Shinobi Lookout",
             BuildCost = 0,
             BuildTime = 0,
